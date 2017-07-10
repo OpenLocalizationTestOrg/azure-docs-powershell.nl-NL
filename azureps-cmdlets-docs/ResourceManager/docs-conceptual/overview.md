@@ -1,0 +1,52 @@
+---
+title: Overzicht van Azure PowerShell | Microsoft Docs
+description: Een overzicht van Azure PowerShell met koppelingen naar de installatie en configuratie.
+author: sdwheeler
+ms.author: sewhee
+manager: carmonm
+ms.product: azure
+ms.service: azure-powershell
+ms.devlang: powershell
+ms.topic: conceptual
+ms.manager: carmonm
+ms.date: 05/15/2017
+ms.openlocfilehash: f26b204604018449584c1fd2ff199728487b1515
+ms.sourcegitcommit: 226527be7cb647acfe2ea9ab151185053ab3c6db
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 06/29/2017
+---
+<a id="overview-of-azure-powershell" class="xliff"></a>
+# Overzicht van Azure PowerShell
+
+Azure PowerShell voorziet in een set van cmdlets die gebruikmaken van het [Azure Resource Manager](/azure/azure-resource-manager/resource-group-overview)-model om uw Azure-resources te beheren.
+
+Lees het artikel [Installeren](install-azurerm-ps.md) voor instructies over hoe u Azure PowerShell op uw systeem kunt activeren. Lees vervolgens het artikel [Aan de slag](get-started-azureps.md) als u ermee van start wilt. Zie de [opmerkingen bij de release](release-notes-azureps.md) voor meer informatie over de nieuwste release.
+
+In de volgende voorbeelden vindt u meer informatie over hoe u een aantal veelvoorkomende scenario's met Azure PowerShell kunt uitvoeren:
+
+* [Virtuele Linux-machines](/azure/virtual-machines/virtual-machines-linux-powershell-samples?toc=/powershell/azure/toc.json)
+* [Virtuele Windows-machines](/azure/virtual-machines/virtual-machines-windows-powershell-samples?toc=/powershell/azure/toc.json)
+* [Web Apps](/azure/app-service-web/app-service-powershell-samples?toc=/powershell/azure/toc.json)
+* [SQL Databases](/azure/sql-database/sql-database-powershell-samples?toc=/powershell/azure/toc.json)
+
+> [!NOTE]
+> Als u implementaties hebt die het klassieke implementatiemodel gebruiken en niet kunnen worden geconverteerd, kunt u de Service Management-versie van Azure PowerShell installeren. Zie voor meer informatie
+
+[De Azure PowerShell Service Management-module installeren](/powershell/azure/servicemanagement/install-azure-ps).
+
+
+<a id="need-help-with-powershell" class="xliff"></a>
+### Hulp nodig met PowerShell?
+
+Als u niet bekend bent met PowerShell, kan een inleiding tot PowerShell van pas komen. Zie [Scripting with PowerShell](https://technet.microsoft.com/library/bb978526.aspx) (Het gebruik van scripts in PowerShell) als u met PowerShell aan de slag wilt.
+
+Of u kunt deze video bekijken: [PowerShell Basics: (Part 1) Getting Started with PowerShell](https://channel9.msdn.com/Blogs/Taste-of-Premier/PowerShellBasicsPart1) (De basisprincipes van PowerShell: (deel 1) Aan de slag met PowerShell).
+
+<a id="other-azure-powershell-modules" class="xliff"></a>
+## Andere Azure PowerShell-modules
+
+* [Azure Active Directory](/powershell/azure/active-directory/)
+* [Azure Information Protection](/powershell/azure/aip/)
+* [Azure Service Fabric](/powershell/azure/oservice-fabric/)
+* [Azure ElasticDB](/powershell/azure/elasticdbjobs/)
