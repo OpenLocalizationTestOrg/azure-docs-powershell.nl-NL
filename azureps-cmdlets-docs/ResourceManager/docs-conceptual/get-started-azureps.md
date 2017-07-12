@@ -17,12 +17,14 @@ ms.contentlocale: nl-NL
 ms.lasthandoff: 06/29/2017
 ---
 <a id="getting-started-with-azure-powershell" class="xliff"></a>
+
 # Aan de slag met Azure PowerShell
 
 Azure PowerShell is ontworpen om Azure-resources te beheren vanaf de opdrachtregel en voor het bouwen van automatiseringsscripts die op basis van Azure Resource Manager werken. Dit artikel helpt u op weg met het gebruik ervan en leert u wat de belangrijkste concepten zijn die eraan ten grondslag liggen.
 
 
 <a id="install-azure-powershell" class="xliff"></a>
+
 ## Azure PowerShell installeren
 De eerste stap bestaat eruit dat u moet controleren of de nieuwste versie van Azure PowerShell is geïnstalleerd.  De nieuwste versie is 4.1.0.
 
@@ -32,6 +34,7 @@ De eerste stap bestaat eruit dat u moet controleren of de nieuwste versie van Az
 
 
 <a id="log-in-to-azure" class="xliff"></a>
+
 ## Meld u aan bij Azure.
 
 Interactief aanmelden:
@@ -44,6 +47,7 @@ Interactief aanmelden:
 Nadat u zich hebt aangemeld bij een Azure-account, kunt u de Azure PowerShell-cmdlets gebruiken om toegang te krijgen tot de resources in uw abonnement en om deze te beheren.
 
 <a id="create-a-resource-group" class="xliff"></a>
+
 ## Een resourcegroep maken
 
 Nu alles is ingesteld, gaan we Azure PowerShell gebruiken om resources binnen Azure te maken.
@@ -65,11 +69,13 @@ ResourceId        : /subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/resource
 ```
 
 <a id="create-a-windows-virtual-machine" class="xliff"></a>
+
 ## Een virtuele Windows-machine maken
 
 Nu deze resourcegroep is gemaakt, maken we een virtuele Windows-machine binnen deze groep. Als we een nieuwe virtuele machine maken, moeten we eerst de vereiste resources maken en deze toewijzen aan een configuratie. Vervolgens gebruiken we die configuratie om de virtuele machine te maken.
 
 <a id="create-the-required-network-resources" class="xliff"></a>
+
 ### De vereiste netwerkresources maken
 
 Eerst moet er een subnetconfiguratie worden gemaakt die wordt gebruikt bij het maken van het virtuele netwerk. We gaan ook een openbaar IP-adres maken, zodat er verbinding met deze virtuele machine kan worden gemaakt. We maken een netwerkbeveiligingsgroep voor beveiligde toegang tot het openbare adres. Ten slotte maken we de virtuele NIC met alle voorgaande resources.
@@ -107,6 +113,7 @@ $nic = New-AzureRmNetworkInterface -Name myNic1 -ResourceGroupName $resourceGrou
 ```
 
 <a id="create-the-virtual-machine" class="xliff"></a>
+
 ### De virtuele machine maken
 
 Eerst hebben we een set referenties nodig voor het besturingssysteem.
@@ -159,11 +166,13 @@ Gebruik om u aan te melden dezelfde combinatie van gebruikersnaam en wachtwoord 
 
 
 <a id="create-a-linux-virtual-machine" class="xliff"></a>
+
 ## Een virtuele Linux-machine maken
 
 Als we een nieuwe virtuele Linux-machine maken, moeten we eerst de vereiste resources maken en deze toewijzen aan een configuratie. Vervolgens gebruiken we die configuratie om de virtuele machine te maken. Hierbij wordt ervan uitgegaan dat u de resourcegroep al hebt gemaakt zoals eerder is getoond. Er moet zich ook een openbare SSH-sleutel met de naam `id_rsa.pub` in de map .ssh van uw gebruikersprofiel bevinden.
 
 <a id="create-the-required-network-resources" class="xliff"></a>
+
 ### De vereiste netwerkresources maken
 
 Eerst moet er een subnetconfiguratie worden gemaakt die wordt gebruikt bij het maken van het virtuele netwerk. We gaan ook een openbaar IP-adres maken, zodat er verbinding met deze virtuele machine kan worden gemaakt. We maken een netwerkbeveiligingsgroep voor beveiligde toegang tot het openbare adres. Ten slotte maken we de virtuele NIC met alle voorgaande resources.
@@ -205,6 +214,7 @@ $nic = New-AzureRmNetworkInterface -Name myNic2 -ResourceGroupName $resourceGrou
 ```
 
 <a id="create-the-virtual-machine" class="xliff"></a>
+
 ### De virtuele machine maken
 
 Nu we de vereiste resources hebben, kunnen we de virtuele machine maken. Voor deze stap maken we een VM-configuratieobject. Vervolgens gebruiken we de configuratie om de virtuele machine te maken.
@@ -262,6 +272,7 @@ my-login@MyLinuxVM:~$
 ```
 
 <a id="creating-other-resources-in-azure" class="xliff"></a>
+
 ## Andere resources in Azure maken
 
 We hebben u nu laten zien welke stappen u moet uitvoeren om een resourcegroep, een virtuele Linux-machine en een virtuele Windows Server-machine te maken. U kunt ook nog vele andere typen Azure-resources maken.
@@ -294,6 +305,7 @@ New-AzureRmWebApp -Name MyWebApp43433 -AppServicePlan MyAppServicePlan -Resource
 ```
 
 <a id="listing-deployed-resources" class="xliff"></a>
+
 ## Geïmplementeerde resources in een lijst weergeven
 
 U kunt de cmdlet `Get-AzureRmResource` gebruiken om de resources weer te geven die in Azure worden uitgevoerd. In het volgende voorbeeld worden de resources weergegeven die we zojuist in de nieuwe resourcegroep hebben gemaakt.
@@ -324,6 +336,7 @@ micromyresomywi032907510                              westeurope Microsoft.Stora
 ```
 
 <a id="deleting-resources" class="xliff"></a>
+
 ## Resources verwijderen
 
 Als u uw Azure-account wilt opschonen, moet u de resources verwijderen die in dit voorbeeld zijn gemaakt. U kunt de cmdlets `Remove-AzureRm*` gebruiken om de resources te verwijderen die u niet meer nodig hebt. Als u de virtuele Windows-machine wilt verwijderen die we hebben gemaakt, gebruikt u de volgende opdracht:
@@ -355,11 +368,13 @@ Are you sure you want to remove resource group 'myResourceGroup'
 Dit kan enkele minuten in beslag nemen.
 
 <a id="get-samples" class="xliff"></a>
+
 ## Voorbeelden ophalen
 
 Voor meer informatie over het gebruik van Azure PowerShell kunt u onze meest voorkomende scripts voor [virtuele Linux-machines](/azure/virtual-machines/virtual-machines-linux-powershell-samples?toc=%2fpowershell%2fazure%%2ftoc.json), [virtuele Windows-machines](/azure/virtual-machines/virtual-machines-windows-powershell-samples?toc=%2fpowershell%2fazure%%2ftoc.json), [Web Apps](/azure/app-service-web/app-service-powershell-samples?toc=%2fpowershell%2fazure%%2ftoc.json) en [SQL Databases](/azure/sql-database/sql-database-powershell-samples?toc=%2fpowershell%2fazure%%2ftoc.json) raadplegen.
 
 <a id="next-steps" class="xliff"></a>
+
 ## Volgende stappen
 
 * [Aanmelden met Azure PowerShell](authenticate-azureps.md)
