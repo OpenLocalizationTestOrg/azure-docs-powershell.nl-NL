@@ -9,11 +9,11 @@ ms.service: azure-powershell
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 03/06/2017
-ms.openlocfilehash: c51c727c1cb022eca59f819c7f24d8e058c677da
-ms.sourcegitcommit: 226527be7cb647acfe2ea9ab151185053ab3c6db
+ms.openlocfilehash: 164af369d49e3044e5409c28d8b6145ebc067313
+ms.sourcegitcommit: 020066d68d4ab68da162a4ae0cb4e239241f950f
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/29/2017
+ms.lasthandoff: 07/28/2017
 ---
 # <a name="installing-the-azure-powershell-service-management-module"></a>De Azure PowerShell Service Management-module installeren
 
@@ -35,7 +35,7 @@ Name          Version Path
 PowerShellGet 1.0.0.1 C:\Program Files\WindowsPowerShell\Modules\PowerShellGet\1.0.0.1\PowerShellGet.psd1
 ```
 
-Zie [PowerShellGet ophalen](install-azurerm-ps.md#how-to-get-powershellget) als PowerShellGet niet is geïnstalleerd.
+Zie [PowerShellGet ophalen](#how-to-get-powershellget) als PowerShellGet niet is geïnstalleerd.
 
 ## <a name="step-2-install-azure-powershell"></a>Stap 2: Azure PowerShell installeren
 
@@ -76,3 +76,20 @@ Azure PowerShell-modules worden regelmatig bijgewerkt. Als u merkt dat de online
 Als u op zoek bent naar voorbeeldscripts waarmee u een aantal veelvoorkomende taken in Azure kunt automatiseren, kunt u het [Scriptcentrum van Windows Azure](http://www.windowsazure.com/documentation/scripts/) raadplegen.
 
 Zie [Scripting with Windows PowerShell](http://go.microsoft.com/fwlink/p/?linkid=320210) (Werken met scripts in Windows PowerShell) voor algemene informatie over hoe u Windows PowerShell installeert en aanpast, ermee werkt en er meer over leert.
+
+### <a name="how-to-get-powershellget"></a>PowerShellGet ophalen
+
+|Versie van het besturingssysteem|Installatie-instructies|
+|---|---|
+|Ik heb Windows 10 of Windows Server 2016|Ingebouwd in Windows Management Framework 5.0 (WMF), dat is opgenomen in het besturingssysteem|
+|Ik wil een upgrade naar PowerShell 5 uitvoeren|[Installeer de meest recente versie van WMF](https://www.microsoft.com/en-us/download/details.aspx?id=54616)|
+|Ik heb een versie van Windows met PowerShell 3 of PowerShell 4|[Haal de PackageManagement-modules op](http://go.microsoft.com/fwlink/?LinkID=746217)|
+
+<a id="helpmechoose"></a>
+### <a name="checking-the-version-of-azure-powershell"></a>De versie van Azure PowerShell controleren
+
+Hoewel we u aanraden om zo snel mogelijk een upgrade naar de meest recente versie uit te voeren, worden er meerdere versies van Azure PowerShell ondersteund. Voer `Get-Module AzureRM` vanaf de opdrachtregel uit om te bepalen welke versie van Azure PowerShell er op uw systeem is geïnstalleerd.
+
+```powershell
+Get-Module AzureRM -list | Select-Object Name,Version,Path
+```
