@@ -10,11 +10,11 @@ ms.service: azure-powershell
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 05/17/2017
-ms.openlocfilehash: 86bf3ab84b706d44b46f420d07570069f65bde72
-ms.sourcegitcommit: 226527be7cb647acfe2ea9ab151185053ab3c6db
+ms.openlocfilehash: 62572780a2e713ea0a53a670cfd548a7badd2d98
+ms.sourcegitcommit: 020066d68d4ab68da162a4ae0cb4e239241f950f
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/29/2017
+ms.lasthandoff: 07/28/2017
 ---
 # <a name="install-and-configure-azure-powershell"></a>Azure PowerShell installeren en configureren
 
