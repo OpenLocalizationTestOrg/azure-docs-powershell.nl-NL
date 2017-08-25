@@ -9,7 +9,8 @@
       "build_output_subfolder": "azureps",
       "locale": "nl-NL",
       "monikers": [],
-      "open_to_public_contributors": false,
+      "open_to_public_contributors": true,
+
       "type_mapping": {
         "Conceptual": "Content",
         "ManagedReference": "Content",
@@ -32,24 +33,15 @@
   "notification_subscribers": [],
   "branches_to_filter": [],
   "skip_source_output_uploading": false,
+  "git_repository_branch_open_to_public_contributors": "live",
   "dependent_repositories": [
     {
       "path_to_root": "_themes",
       "url": "https://github.com/Microsoft/templates.docs.msft.nl-NL",
       "branch": "master",
       "branch_mapping": {}
-    },
-    {
-      "path_to_root": "_repo.en-us",
-      "url": "https://github.com/Azure/azure-docs-powershell",
-      "branch": "live",
-      "branch_mapping": {
-        "live": "live",
-        "master": "master"
-      }
     }
   ],
-  "need_generate_pdf_url_template": false,
   "dependent_packages": [
     {
       "path_to_root": "_dependentPackages/azurecli.plugins",
@@ -62,6 +54,13 @@
       "path_to_root": "_dependentPackages/Microsoft.OpenPublishing.AzurePSPlugin",
       "version": "latest",
       "nuget_feed": "https://www.myget.org/F/op/api/v2"
+    },
+    {
+      "id": "Microsoft.OpenPublishing.CommonPlugins",
+      "nuget_feed": "https://www.myget.org/F/op/api/v2",
+      "path_to_root": "_dependentPackages/CommonPlugins",
+      "target_framework": "net45",
+      "version": "latest"
     }
   ],
   "monikerPath": [
@@ -69,5 +68,6 @@
     "azureps-cmdlets-docs/ServiceManagement/mapping/monikerMapping.json",
     "azureps-cmdlets-docs/AzureStack/mapping/monikerMapping.json"
   ],
+  "need_generate_pdf_url_template": false,
   "dest": "_site"
 }
