@@ -10,45 +10,36 @@ ms.service: azure-powershell
 ms.devlang: powershell
 ms.topic: get-started-article
 ms.date: 03/30/2017
-ms.openlocfilehash: 4bfa14f4f139fa8c35d4bb51ae81baea819188ce
-ms.sourcegitcommit: 226527be7cb647acfe2ea9ab151185053ab3c6db
+ms.openlocfilehash: f1c13317f0b42b547166a8130dd8c29bed5759c9
+ms.sourcegitcommit: db5c50de90764a9bdc7c1f1dbca3aed5bfeb05fa
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/29/2017
+ms.lasthandoff: 08/22/2017
 ---
-<a id="getting-started-with-azure-powershell" class="xliff"></a>
-
-# Aan de slag met Azure PowerShell
+# <a name="getting-started-with-azure-powershell"></a>Aan de slag met Azure PowerShell
 
 Azure PowerShell is ontworpen om Azure-resources te beheren vanaf de opdrachtregel en voor het bouwen van automatiseringsscripts die op basis van Azure Resource Manager werken. Dit artikel helpt u op weg met het gebruik ervan en leert u wat de belangrijkste concepten zijn die eraan ten grondslag liggen.
 
+## <a name="install-azure-powershell"></a>Azure PowerShell installeren
 
-<a id="install-azure-powershell" class="xliff"></a>
-
-## Azure PowerShell installeren
-De eerste stap bestaat eruit dat u moet controleren of de nieuwste versie van Azure PowerShell is geïnstalleerd.  De nieuwste versie is 4.1.0.
+De eerste stap bestaat eruit dat u moet controleren of de nieuwste versie van Azure PowerShell is geïnstalleerd. Zie de [opmerkingen bij de release](./release-notes-azureps.md) voor meer informatie over de nieuwste release.
 
 1. [Installeer Azure PowerShell](install-azurerm-ps.md).
-
 2. Voer `Get-Module AzureRM` uit vanaf de opdrachtregel om te controleren of de installatie is geslaagd.
 
-
-<a id="log-in-to-azure" class="xliff"></a>
-
-## Meld u aan bij Azure.
+## <a name="log-in-to-azure"></a>Meld u aan bij Azure.
 
 Interactief aanmelden:
 
-1. Typ `Login-AzureRmAccount`.  U krijgt een dialoogvenster te zien waarin wordt gevraagd naar uw Azure-referenties. Met behulp van de optie '-EnvironmentName' kunt u zich aanmelden bij Azure China of Azure Duitsland.
+1. Typ `Login-AzureRmAccount`. U krijgt een dialoogvenster te zien waarin wordt gevraagd naar uw Azure-referenties. Met behulp van de optie '-EnvironmentName' kunt u zich aanmelden bij Azure China of Azure Duitsland.
+
    bijvoorbeeld: Login-AzureRmAccount - EnvironmentName AzureChinaCloud
 
 2. Typ het e-mailadres en het wachtwoord die bij uw account horen. Azure verifieert de referentiegegevens en slaat deze op. Vervolgens wordt het venster gesloten.
 
 Nadat u zich hebt aangemeld bij een Azure-account, kunt u de Azure PowerShell-cmdlets gebruiken om toegang te krijgen tot de resources in uw abonnement en om deze te beheren.
 
-<a id="create-a-resource-group" class="xliff"></a>
-
-## Een resourcegroep maken
+## <a name="create-a-resource-group"></a>Een resourcegroep maken
 
 Nu alles is ingesteld, gaan we Azure PowerShell gebruiken om resources binnen Azure te maken.
 
@@ -68,15 +59,11 @@ Tags              :
 ResourceId        : /subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/resourceGroups/myResourceGroup
 ```
 
-<a id="create-a-windows-virtual-machine" class="xliff"></a>
-
-## Een virtuele Windows-machine maken
+## <a name="create-a-windows-virtual-machine"></a>Een virtuele Windows-machine maken
 
 Nu deze resourcegroep is gemaakt, maken we een virtuele Windows-machine binnen deze groep. Als we een nieuwe virtuele machine maken, moeten we eerst de vereiste resources maken en deze toewijzen aan een configuratie. Vervolgens gebruiken we die configuratie om de virtuele machine te maken.
 
-<a id="create-the-required-network-resources" class="xliff"></a>
-
-### De vereiste netwerkresources maken
+### <a name="create-the-required-network-resources"></a>De vereiste netwerkresources maken
 
 Eerst moet er een subnetconfiguratie worden gemaakt die wordt gebruikt bij het maken van het virtuele netwerk. We gaan ook een openbaar IP-adres maken, zodat er verbinding met deze virtuele machine kan worden gemaakt. We maken een netwerkbeveiligingsgroep voor beveiligde toegang tot het openbare adres. Ten slotte maken we de virtuele NIC met alle voorgaande resources.
 
@@ -112,9 +99,7 @@ $nic = New-AzureRmNetworkInterface -Name myNic1 -ResourceGroupName $resourceGrou
   -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $publicIp.Id -NetworkSecurityGroupId $nsg.Id
 ```
 
-<a id="create-the-virtual-machine" class="xliff"></a>
-
-### De virtuele machine maken
+### <a name="create-the-virtual-machine"></a>De virtuele machine maken
 
 Eerst hebben we een set referenties nodig voor het besturingssysteem.
 
@@ -165,15 +150,11 @@ mstsc /v:xx.xxx.xx.xxx
 Gebruik om u aan te melden dezelfde combinatie van gebruikersnaam en wachtwoord die u hebt gebruikt toen u de virtuele machine maakte.
 
 
-<a id="create-a-linux-virtual-machine" class="xliff"></a>
-
-## Een virtuele Linux-machine maken
+## <a name="create-a-linux-virtual-machine"></a>Een virtuele Linux-machine maken
 
 Als we een nieuwe virtuele Linux-machine maken, moeten we eerst de vereiste resources maken en deze toewijzen aan een configuratie. Vervolgens gebruiken we die configuratie om de virtuele machine te maken. Hierbij wordt ervan uitgegaan dat u de resourcegroep al hebt gemaakt zoals eerder is getoond. Er moet zich ook een openbare SSH-sleutel met de naam `id_rsa.pub` in de map .ssh van uw gebruikersprofiel bevinden.
 
-<a id="create-the-required-network-resources" class="xliff"></a>
-
-### De vereiste netwerkresources maken
+### <a name="create-the-required-network-resources"></a>De vereiste netwerkresources maken
 
 Eerst moet er een subnetconfiguratie worden gemaakt die wordt gebruikt bij het maken van het virtuele netwerk. We gaan ook een openbaar IP-adres maken, zodat er verbinding met deze virtuele machine kan worden gemaakt. We maken een netwerkbeveiligingsgroep voor beveiligde toegang tot het openbare adres. Ten slotte maken we de virtuele NIC met alle voorgaande resources.
 
@@ -213,9 +194,7 @@ $nic = New-AzureRmNetworkInterface -Name myNic2 -ResourceGroupName $resourceGrou
   -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $publicIp.Id -NetworkSecurityGroupId $nsg.Id
 ```
 
-<a id="create-the-virtual-machine" class="xliff"></a>
-
-### De virtuele machine maken
+### <a name="create-the-virtual-machine"></a>De virtuele machine maken
 
 Nu we de vereiste resources hebben, kunnen we de virtuele machine maken. Voor deze stap maken we een VM-configuratieobject. Vervolgens gebruiken we de configuratie om de virtuele machine te maken.
 
@@ -271,9 +250,7 @@ applicable law.
 my-login@MyLinuxVM:~$
 ```
 
-<a id="creating-other-resources-in-azure" class="xliff"></a>
-
-## Andere resources in Azure maken
+## <a name="creating-other-resources-in-azure"></a>Andere resources in Azure maken
 
 We hebben u nu laten zien welke stappen u moet uitvoeren om een resourcegroep, een virtuele Linux-machine en een virtuele Windows Server-machine te maken. U kunt ook nog vele andere typen Azure-resources maken.
 
@@ -304,9 +281,7 @@ New-AzureRmWebApp -Name MyWebApp43432 -AppServicePlan MyAppServicePlan -Resource
 New-AzureRmWebApp -Name MyWebApp43433 -AppServicePlan MyAppServicePlan -ResourceGroupName myResourceGroup -Location westeurope
 ```
 
-<a id="listing-deployed-resources" class="xliff"></a>
-
-## Geïmplementeerde resources in een lijst weergeven
+## <a name="listing-deployed-resources"></a>Geïmplementeerde resources in een lijst weergeven
 
 U kunt de cmdlet `Get-AzureRmResource` gebruiken om de resources weer te geven die in Azure worden uitgevoerd. In het volgende voorbeeld worden de resources weergegeven die we zojuist in de nieuwe resourcegroep hebben gemaakt.
 
@@ -335,9 +310,7 @@ MYvNET2                                               westeurope Microsoft.Netwo
 micromyresomywi032907510                              westeurope Microsoft.Storage/storageAccounts
 ```
 
-<a id="deleting-resources" class="xliff"></a>
-
-## Resources verwijderen
+## <a name="deleting-resources"></a>Resources verwijderen
 
 Als u uw Azure-account wilt opschonen, moet u de resources verwijderen die in dit voorbeeld zijn gemaakt. U kunt de cmdlets `Remove-AzureRm*` gebruiken om de resources te verwijderen die u niet meer nodig hebt. Als u de virtuele Windows-machine wilt verwijderen die we hebben gemaakt, gebruikt u de volgende opdracht:
 
@@ -367,15 +340,11 @@ Are you sure you want to remove resource group 'myResourceGroup'
 
 Dit kan enkele minuten in beslag nemen.
 
-<a id="get-samples" class="xliff"></a>
-
-## Voorbeelden ophalen
+## <a name="get-samples"></a>Voorbeelden ophalen
 
 Voor meer informatie over het gebruik van Azure PowerShell kunt u onze meest voorkomende scripts voor [virtuele Linux-machines](/azure/virtual-machines/virtual-machines-linux-powershell-samples?toc=%2fpowershell%2fazure%%2ftoc.json), [virtuele Windows-machines](/azure/virtual-machines/virtual-machines-windows-powershell-samples?toc=%2fpowershell%2fazure%%2ftoc.json), [Web Apps](/azure/app-service-web/app-service-powershell-samples?toc=%2fpowershell%2fazure%%2ftoc.json) en [SQL Databases](/azure/sql-database/sql-database-powershell-samples?toc=%2fpowershell%2fazure%%2ftoc.json) raadplegen.
 
-<a id="next-steps" class="xliff"></a>
-
-## Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 
 * [Aanmelden met Azure PowerShell](authenticate-azureps.md)
 * [Azure-abonnementen beheren met Azure PowerShell](manage-subscriptions-azureps.md)
