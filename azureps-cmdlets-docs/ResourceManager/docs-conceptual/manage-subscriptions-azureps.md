@@ -16,8 +16,7 @@ ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 06/29/2017
 ---
-# <span data-ttu-id="edc45-104">Meerdere Azure-abonnementen beheren</span><span class="sxs-lookup"><span data-stu-id="edc45-104">Manage multiple Azure subscriptions</span></span>
-<a id="manage-multiple-azure-subscriptions" class="xliff"></a>
+# <a name="manage-multiple-azure-subscriptions"></a><span data-ttu-id="edc45-104">Meerdere Azure-abonnementen beheren</span><span class="sxs-lookup"><span data-stu-id="edc45-104">Manage multiple Azure subscriptions</span></span>
 
 <span data-ttu-id="edc45-105">Als u nieuw bent bij Azure, hebt u waarschijnlijk slechts één abonnement.</span><span class="sxs-lookup"><span data-stu-id="edc45-105">If you are brand new to Azure, you probably only have a single subscription.</span></span> <span data-ttu-id="edc45-106">Maar als u Azure al een tijdje gebruikt, hebt u waarschijnlijk al meerdere Azure-abonnementen gemaakt.</span><span class="sxs-lookup"><span data-stu-id="edc45-106">But if you have been using Azure for a while, you may have created multiple Azure subscriptions.</span></span> <span data-ttu-id="edc45-107">U kunt Azure PowerShell configureren voor het uitvoeren van opdrachten op basis van een bepaald abonnement.</span><span class="sxs-lookup"><span data-stu-id="edc45-107">You can configure Azure PowerShell to execute commands against a particular subscription.</span></span>
 

@@ -1,7 +1,7 @@
 ---
-title: <span data-ttu-id="fd448-101">Een Azure-service-principal maken met Azure PowerShell</span><span class="sxs-lookup"><span data-stu-id="fd448-101">Create an Azure service principal with Azure PowerShell</span></span>
-description: <span data-ttu-id="fd448-102">Lees hoe u met Azure PowerShell een service-principal voor uw app of service maakt.</span><span class="sxs-lookup"><span data-stu-id="fd448-102">Learn how to create a service principal for your app or service with Azure PowerShell.</span></span>
-keywords: <span data-ttu-id="fd448-103">Azure PowerShell, Azure Active Directory, Azure Active directory, AD, RBAC</span><span class="sxs-lookup"><span data-stu-id="fd448-103">Azure PowerShell, Azure Active Directory, Azure Active directory, AD, RBAC</span></span>
+title: Een Azure-service-principal maken met Azure PowerShell
+description: Lees hoe u met Azure PowerShell een service-principal voor uw app of service maakt.
+keywords: Azure PowerShell, Azure Active Directory, Azure Active directory, AD, RBAC
 services: azure
 author: sdwheeler
 ms.author: sewhee
@@ -17,36 +17,31 @@ ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 06/29/2017
 ---
-# <span data-ttu-id="fd448-104">Een Azure-service-principal maken met Azure PowerShell</span><span class="sxs-lookup"><span data-stu-id="fd448-104">Create an Azure service principal with Azure PowerShell</span></span>
-<a id="create-an-azure-service-principal-with-azure-powershell" class="xliff"></a>
+# <a name="create-an-azure-service-principal-with-azure-powershell"></a><span data-ttu-id="fd448-104">Een Azure-service-principal maken met Azure PowerShell</span><span class="sxs-lookup"><span data-stu-id="fd448-104">Create an Azure service principal with Azure PowerShell</span></span>
 
 <span data-ttu-id="fd448-105">Als u van plan bent om uw app of service met Azure PowerShell te beheren, moet u deze uitvoeren met behulp van een AAD-service-principal (Azure Active Directory) in plaats van met uw eigen referenties.</span><span class="sxs-lookup"><span data-stu-id="fd448-105">If you plan to manage your app or service with Azure PowerShell, you should run it under an Azure Active Directory (AAD) service principal, rather than your own credentials.</span></span> <span data-ttu-id="fd448-106">In dit onderwerp wordt stapsgewijs uitgelegd hoe u met Azure PowerShell een beveiligingsprincipal maakt.</span><span class="sxs-lookup"><span data-stu-id="fd448-106">This topic steps you through creating a security principal with Azure PowerShell.</span></span>
 
 > [!NOTE]
 > <span data-ttu-id="fd448-107">U kunt ook een service-principal maken via Azure Portal.</span><span class="sxs-lookup"><span data-stu-id="fd448-107">You can also create a service principal through the Azure portal.</span></span> <span data-ttu-id="fd448-108">Lees [Portal gebruiken voor het maken van een Active Directory-toepassing en -service-principal die toegang hebben tot resources](/azure/azure-resource-manager/resource-group-create-service-principal-portal) voor meer informatie.</span><span class="sxs-lookup"><span data-stu-id="fd448-108">Read [Use portal to create Active Directory application and service principal that can access resources](/azure/azure-resource-manager/resource-group-create-service-principal-portal) for more details.</span></span>
 
-## <span data-ttu-id="fd448-109">Wat is een service-principal?</span><span class="sxs-lookup"><span data-stu-id="fd448-109">What is a 'service principal'?</span></span>
-<a id="what-is-a-service-principal" class="xliff"></a>
+## <a name="what-is-a-service-principal"></a><span data-ttu-id="fd448-109">Wat is een service-principal?</span><span class="sxs-lookup"><span data-stu-id="fd448-109">What is a 'service principal'?</span></span>
 
 <span data-ttu-id="fd448-110">Een Azure-service-principal is een beveiligings-id die wordt gebruikt door apps, services en automatiseringsprogramma's die door gebruikers zijn gemaakt voor het verkrijgen van toegang tot specifieke Azure-resources.</span><span class="sxs-lookup"><span data-stu-id="fd448-110">An Azure service principal is a security identity used by user-created apps, services, and automation tools to access specific Azure resources.</span></span> <span data-ttu-id="fd448-111">U kunt een service-principal vergelijken met een gebruikers-id (gebruikersnaam en wachtwoord of certificaat) die een specifieke rol heeft en over nauwkeurig omschreven machtigingen beschikt.</span><span class="sxs-lookup"><span data-stu-id="fd448-111">Think of it as a 'user identity' (username and password or certificate) with a specific role, and tightly controlled permissions.</span></span> <span data-ttu-id="fd448-112">Anders dan een algemene gebruikers-id, hoeft een service-principal slechts enkele specifieke handelingen uit te kunnen voeren.</span><span class="sxs-lookup"><span data-stu-id="fd448-112">It only needs to be able to do specific things, unlike a general user identity.</span></span> <span data-ttu-id="fd448-113">De beveiliging verbetert erdoor als u er net voldoende machtigingen aan verleent om de beheertaken te kunnen uitvoeren.</span><span class="sxs-lookup"><span data-stu-id="fd448-113">It improves security if you only grant it the minimum permissions level needed to perform its management tasks.</span></span>
 
-## <span data-ttu-id="fd448-114">Uw eigen machtigingsniveau controleren</span><span class="sxs-lookup"><span data-stu-id="fd448-114">Verify your own permission level</span></span>
-<a id="verify-your-own-permission-level" class="xliff"></a>
+## <a name="verify-your-own-permission-level"></a><span data-ttu-id="fd448-114">Uw eigen machtigingsniveau controleren</span><span class="sxs-lookup"><span data-stu-id="fd448-114">Verify your own permission level</span></span>
 
 <span data-ttu-id="fd448-115">In de eerste plaats moet u over voldoende machtigingen beschikken in uw Azure Active Directory en uw Azure-abonnement.</span><span class="sxs-lookup"><span data-stu-id="fd448-115">First, you must have sufficient permissions in both your Azure Active Directory and your Azure subscription.</span></span> <span data-ttu-id="fd448-116">Meer specifiek moet u een app in de Active Directory kunnen maken en een rol kunnen toewijzen aan de service-principal.</span><span class="sxs-lookup"><span data-stu-id="fd448-116">Specifically, you must be able to create an app in the Active Directory, and assign a role to the service principal.</span></span>
 
 <span data-ttu-id="fd448-117">De eenvoudigste manier om te controleren of uw account over de juiste machtigingen beschikt, verloopt via de portal.</span><span class="sxs-lookup"><span data-stu-id="fd448-117">The easiest way to check whether your account has adequate permissions is through the portal.</span></span> <span data-ttu-id="fd448-118">Zie [Check required permission in portal](/azure/azure-resource-manager/resource-group-create-service-principal-portal#required-permissions) (Vereiste machtigingen controleren in de portal).</span><span class="sxs-lookup"><span data-stu-id="fd448-118">See [Check required permission in portal](/azure/azure-resource-manager/resource-group-create-service-principal-portal#required-permissions).</span></span>
 
-## <span data-ttu-id="fd448-119">Een service-principal voor uw app maken</span><span class="sxs-lookup"><span data-stu-id="fd448-119">Create a service principal for your app</span></span>
-<a id="create-a-service-principal-for-your-app" class="xliff"></a>
+## <a name="create-a-service-principal-for-your-app"></a><span data-ttu-id="fd448-119">Een service-principal voor uw app maken</span><span class="sxs-lookup"><span data-stu-id="fd448-119">Create a service principal for your app</span></span>
 
 <span data-ttu-id="fd448-120">U kunt de service-principal maken nadat u zich hebt aangemeld bij uw Azure-account.</span><span class="sxs-lookup"><span data-stu-id="fd448-120">Once you are signed into your Azure account, you can create the service principal.</span></span> <span data-ttu-id="fd448-121">U moet met een van de volgende methoden de door u geïmplementeerde app kunnen identificeren:</span><span class="sxs-lookup"><span data-stu-id="fd448-121">You must have one of the following ways to identify your deployed app:</span></span>
 
 * <span data-ttu-id="fd448-122">de unieke naam van de door u geïmplementeerde app, zoals 'MyDemoWebApp' in de volgende voorbeelden of</span><span class="sxs-lookup"><span data-stu-id="fd448-122">The unique name of your deployed app, such as "MyDemoWebApp" in the following examples, or</span></span>
 * <span data-ttu-id="fd448-123">de toepassings-id, de unieke GUID die is gekoppeld aan de door u geïmplementeerde app of service, of het door u geïmplementeerde object</span><span class="sxs-lookup"><span data-stu-id="fd448-123">the Application ID, the unique GUID associated with your deployed app, service, or object</span></span>
 
-### <span data-ttu-id="fd448-124">Informatie over uw toepassing verzamelen</span><span class="sxs-lookup"><span data-stu-id="fd448-124">Get information about your application</span></span>
-<a id="get-information-about-your-application" class="xliff"></a>
+### <a name="get-information-about-your-application"></a><span data-ttu-id="fd448-124">Informatie over uw toepassing verzamelen</span><span class="sxs-lookup"><span data-stu-id="fd448-124">Get information about your application</span></span>
 
 <span data-ttu-id="fd448-125">De cmdlet `Get-AzureRmADApplication` kan worden gebruikt om informatie over uw toepassing te achterhalen.</span><span class="sxs-lookup"><span data-stu-id="fd448-125">The `Get-AzureRmADApplication` cmdlet can be used to discover information about your application.</span></span>
 
@@ -66,8 +61,7 @@ AppPermissions          :
 ReplyUrls               : {}
 ```
 
-### <span data-ttu-id="fd448-126">Een service-principal voor uw toepassing maken</span><span class="sxs-lookup"><span data-stu-id="fd448-126">Create a service principal for your application</span></span>
-<a id="create-a-service-principal-for-your-application" class="xliff"></a>
+### <a name="create-a-service-principal-for-your-application"></a><span data-ttu-id="fd448-126">Een service-principal voor uw toepassing maken</span><span class="sxs-lookup"><span data-stu-id="fd448-126">Create a service principal for your application</span></span>
 
 <span data-ttu-id="fd448-127">De cmdlet `New-AzureRmADServicePrincipal` wordt gebruikt om de service-principal te maken.</span><span class="sxs-lookup"><span data-stu-id="fd448-127">The `New-AzureRmADServicePrincipal` cmdlet is used to create the service principal.</span></span>
 
@@ -83,8 +77,7 @@ DisplayName                    Type                           ObjectId
 MyDemoWebApp                   ServicePrincipal               698138e7-d7b6-4738-a866-b4e3081a69e4
 ```
 
-### <span data-ttu-id="fd448-128">Informatie over de service-principal verzamelen</span><span class="sxs-lookup"><span data-stu-id="fd448-128">Get information about the service principal</span></span>
-<a id="get-information-about-the-service-principal" class="xliff"></a>
+### <a name="get-information-about-the-service-principal"></a><span data-ttu-id="fd448-128">Informatie over de service-principal verzamelen</span><span class="sxs-lookup"><span data-stu-id="fd448-128">Get information about the service principal</span></span>
 
 ```powershell
 $svcprincipal = Get-AzureRmADServicePrincipal -ObjectId 698138e7-d7b6-4738-a866-b4e3081a69e4
@@ -99,8 +92,7 @@ Id                    : 698138e7-d7b6-4738-a866-b4e3081a69e4
 Type                  : ServicePrincipal
 ```
 
-### <span data-ttu-id="fd448-129">U aanmelden met de service principal</span><span class="sxs-lookup"><span data-stu-id="fd448-129">Sign in using the service principal</span></span>
-<a id="sign-in-using-the-service-principal" class="xliff"></a>
+### <a name="sign-in-using-the-service-principal"></a><span data-ttu-id="fd448-129">U aanmelden met de service principal</span><span class="sxs-lookup"><span data-stu-id="fd448-129">Sign in using the service principal</span></span>
 
 <span data-ttu-id="fd448-130">U kunt u nu aanmelden als de nieuwe service-principal voor uw app met behulp van de *appId* en het *wachtwoord* die u hebt opgegeven.</span><span class="sxs-lookup"><span data-stu-id="fd448-130">You can now sign in as the new service principal for your app using the *appId* and *password* you provided.</span></span> <span data-ttu-id="fd448-131">U moet de tenant-id voor uw account opgeven.</span><span class="sxs-lookup"><span data-stu-id="fd448-131">You need to supply the Tenant Id for your account.</span></span> <span data-ttu-id="fd448-132">Uw tenant-id wordt weergegeven als u zich bij Azure met uw persoonlijke referenties aanmeldt.</span><span class="sxs-lookup"><span data-stu-id="fd448-132">Your Tenant Id is displayed when you sign into Azure with your personal credentials.</span></span>
 
@@ -122,8 +114,7 @@ CurrentStorageAccount :
 
 <span data-ttu-id="fd448-135">Gefeliciteerd.</span><span class="sxs-lookup"><span data-stu-id="fd448-135">Congratulations!</span></span> <span data-ttu-id="fd448-136">U kunt deze referenties gebruiken om uw app uit te voeren.</span><span class="sxs-lookup"><span data-stu-id="fd448-136">You can use these credentials to run your app.</span></span> <span data-ttu-id="fd448-137">De volgende stap bestaat eruit dat u de machtigingen van de service-principal gaat aanpassen.</span><span class="sxs-lookup"><span data-stu-id="fd448-137">Next, you need to adjust the permissions of the service principal.</span></span>
 
-## <span data-ttu-id="fd448-138">Rollen beheren</span><span class="sxs-lookup"><span data-stu-id="fd448-138">Managing roles</span></span>
-<a id="managing-roles" class="xliff"></a>
+## <a name="managing-roles"></a><span data-ttu-id="fd448-138">Rollen beheren</span><span class="sxs-lookup"><span data-stu-id="fd448-138">Managing roles</span></span>
 
 > [!NOTE]
 > <span data-ttu-id="fd448-139">Toegangsbeheer op basis van rollen in Azure (RBAC) is een model voor het definiëren en beheren van rollen voor principals van gebruikers en voor service-principals.</span><span class="sxs-lookup"><span data-stu-id="fd448-139">Azure Role-Based Access Control (RBAC) is a model for defining and managing roles for user and service principals.</span></span> <span data-ttu-id="fd448-140">Aan rollen zijn machtigingensets gekoppeld, die bepalen welke resources een principal kan lezen, waar hij toegang tot heeft, waarvoor hij schrijfrechten heeft en welke hij kan beheren.</span><span class="sxs-lookup"><span data-stu-id="fd448-140">Roles have sets of permissions associated with them, which determine the resources a principal can read, access, write, or manage.</span></span> <span data-ttu-id="fd448-141">Zie [RBAC: ingebouwde rollen](/azure/active-directory/role-based-access-built-in-roles) voor meer informatie over RBAC en rollen.</span><span class="sxs-lookup"><span data-stu-id="fd448-141">For more information on RBAC and roles, see [RBAC: Built-in roles](/azure/active-directory/role-based-access-built-in-roles).</span></span>
@@ -182,13 +173,11 @@ ObjectType         : ServicePrincipal
 * [<span data-ttu-id="fd448-155">Remove-AzureRmRoleDefinition</span><span class="sxs-lookup"><span data-stu-id="fd448-155">Remove-AzureRmRoleDefinition</span></span>](/powershell/module/azurerm.resources/Remove-AzureRmRoleDefinition)
 * [<span data-ttu-id="fd448-156">Set-AzureRmRoleDefinition</span><span class="sxs-lookup"><span data-stu-id="fd448-156">Set-AzureRmRoleDefinition</span></span>](/powershell/module/azurerm.resources/Set-AzureRmRoleDefinition)
 
-## <span data-ttu-id="fd448-157">De referenties van de beveiligingsprincipal wijzigen</span><span class="sxs-lookup"><span data-stu-id="fd448-157">Change the credentials of the security principal</span></span>
-<a id="change-the-credentials-of-the-security-principal" class="xliff"></a>
+## <a name="change-the-credentials-of-the-security-principal"></a><span data-ttu-id="fd448-157">De referenties van de beveiligingsprincipal wijzigen</span><span class="sxs-lookup"><span data-stu-id="fd448-157">Change the credentials of the security principal</span></span>
 
 <span data-ttu-id="fd448-158">Het is een goede gewoonte om regelmatig de machtigingen te controleren en het wachtwoord te wijzigen.</span><span class="sxs-lookup"><span data-stu-id="fd448-158">It's a good security practice to review the permissions and update the password regularly.</span></span> <span data-ttu-id="fd448-159">Misschien wilt u naarmate de app verandert, de beveiligingsreferenties ervan ook wel beheren of wijzigen.</span><span class="sxs-lookup"><span data-stu-id="fd448-159">You may also want to manage and modify the security credentials as your app changes.</span></span> <span data-ttu-id="fd448-160">We kunnen bijvoorbeeld het wachtwoord van de service-principal wijzigen door een nieuw wachtwoord te maken en het oude te verwijderen.</span><span class="sxs-lookup"><span data-stu-id="fd448-160">For example, we can change the password of the service principal by creating a new password and removing the old one.</span></span>
 
-### <span data-ttu-id="fd448-161">Een nieuw wachtwoord voor de service-principal toevoegen</span><span class="sxs-lookup"><span data-stu-id="fd448-161">Add a new password for the service principal</span></span>
-<a id="add-a-new-password-for-the-service-principal" class="xliff"></a>
+### <a name="add-a-new-password-for-the-service-principal"></a><span data-ttu-id="fd448-161">Een nieuw wachtwoord voor de service-principal toevoegen</span><span class="sxs-lookup"><span data-stu-id="fd448-161">Add a new password for the service principal</span></span>
 
 ```powershell
 $password = [System.Web.Security.Membership]::GeneratePassword(16,3)
@@ -201,8 +190,7 @@ StartDate           EndDate             KeyId                                Typ
 3/8/2017 5:58:24 PM 3/8/2018 5:58:24 PM 6f801c3e-6fcd-42b9-be8e-320b17ba1d36 Password
 ```
 
-### <span data-ttu-id="fd448-162">Een lijst met referenties voor de service-principal ophalen</span><span class="sxs-lookup"><span data-stu-id="fd448-162">Get a list of credentials for the service principal</span></span>
-<a id="get-a-list-of-credentials-for-the-service-principal" class="xliff"></a>
+### <a name="get-a-list-of-credentials-for-the-service-principal"></a><span data-ttu-id="fd448-162">Een lijst met referenties voor de service-principal ophalen</span><span class="sxs-lookup"><span data-stu-id="fd448-162">Get a list of credentials for the service principal</span></span>
 
 ```powershell
 Get-AzureRmADSpCredential -ServicePrincipalName http://MyDemoWebApp
@@ -215,8 +203,7 @@ StartDate           EndDate             KeyId                                Typ
 5/5/2016 4:55:27 PM 5/5/2017 4:55:27 PM ca9d4846-4972-4c70-b6f5-a4effa60b9bc Password
 ```
 
-### <span data-ttu-id="fd448-163">Het oude wachtwoord uit de service-principal verwijderen</span><span class="sxs-lookup"><span data-stu-id="fd448-163">Remove the old password from the service principal</span></span>
-<a id="remove-the-old-password-from-the-service-principal" class="xliff"></a>
+### <a name="remove-the-old-password-from-the-service-principal"></a><span data-ttu-id="fd448-163">Het oude wachtwoord uit de service-principal verwijderen</span><span class="sxs-lookup"><span data-stu-id="fd448-163">Remove the old password from the service principal</span></span>
 
 ```powershell
 Remove-AzureRmADSpCredential -ServicePrincipalName http://MyDemoWebApp -KeyId ca9d4846-4972-4c70-b6f5-a4effa60b9bc
@@ -229,8 +216,7 @@ service principal objectId '698138e7-d7b6-4738-a866-b4e3081a69e4'.
 [Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): Y
 ```
 
-### <span data-ttu-id="fd448-164">De lijst met referenties voor de service-principal verifiëren</span><span class="sxs-lookup"><span data-stu-id="fd448-164">Verify the list of credentials for the service principal</span></span>
-<a id="verify-the-list-of-credentials-for-the-service-principal" class="xliff"></a>
+### <a name="verify-the-list-of-credentials-for-the-service-principal"></a><span data-ttu-id="fd448-164">De lijst met referenties voor de service-principal verifiëren</span><span class="sxs-lookup"><span data-stu-id="fd448-164">Verify the list of credentials for the service principal</span></span>
 
 ```powershell
 Get-AzureRmADSpCredential -ServicePrincipalName http://MyDemoWebApp

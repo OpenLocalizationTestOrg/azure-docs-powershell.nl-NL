@@ -1,6 +1,6 @@
 ---
-title: <span data-ttu-id="40533-101">Query's uitvoeren op Azure-resources en resultaten opmaken | Microsoft Docs</span><span class="sxs-lookup"><span data-stu-id="40533-101">Querying for Azure resources and formatting results | Microsoft Docs</span></span>
-description: <span data-ttu-id="40533-102">Query's uitvoeren op Azure-resources en resultaten opmaken.</span><span class="sxs-lookup"><span data-stu-id="40533-102">How to query for resources in Azure and format the results.</span></span>
+title: Query's uitvoeren op Azure-resources en resultaten opmaken | Microsoft Docs
+description: Query's uitvoeren op Azure-resources en resultaten opmaken.
 services: azure
 author: sdwheeler
 ms.author: sewhee
@@ -16,14 +16,12 @@ ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 06/29/2017
 ---
-# <span data-ttu-id="40533-103">Query's uitvoeren op Azure-resources</span><span class="sxs-lookup"><span data-stu-id="40533-103">Querying for Azure resources</span></span>
-<a id="querying-for-azure-resources" class="xliff"></a>
+# <a name="querying-for-azure-resources"></a><span data-ttu-id="40533-103">Query's uitvoeren op Azure-resources</span><span class="sxs-lookup"><span data-stu-id="40533-103">Querying for Azure resources</span></span>
 
 <span data-ttu-id="40533-104">In PowerShell kunnen query's worden uitgevoerd met behulp van ingebouwde cmdlets.</span><span class="sxs-lookup"><span data-stu-id="40533-104">Querying in PowerShell can be completed by using built-in cmdlets.</span></span> <span data-ttu-id="40533-105">De namen van de cmdlets in PowerShell hebben de indeling **_werkwoord-zelfstandig naamwoord_**.</span><span class="sxs-lookup"><span data-stu-id="40533-105">In PowerShell, cmdlet names take the form of **_Verb-Noun_**.</span></span> <span data-ttu-id="40533-106">De cmdlets met het werkwoord **_Get_** zijn de query-cmdlets.</span><span class="sxs-lookup"><span data-stu-id="40533-106">The cmdlets using the verb **_Get_** are the query cmdlets.</span></span> <span data-ttu-id="40533-107">De zelfstandige naamwoorden in de namen van de cmdlets zijn de soorten Azure-resources waarop de werkwoorden van de cmdlets hun bewerkingen uitvoeren.</span><span class="sxs-lookup"><span data-stu-id="40533-107">The cmdlet nouns are the types of Azure resources that are acted upon by the cmdlet verbs.</span></span>
 
 
-## <span data-ttu-id="40533-108">Eenvoudige eigenschappen selecteren</span><span class="sxs-lookup"><span data-stu-id="40533-108">Selecting simple properties</span></span>
-<a id="selecting-simple-properties" class="xliff"></a>
+## <a name="selecting-simple-properties"></a><span data-ttu-id="40533-108">Eenvoudige eigenschappen selecteren</span><span class="sxs-lookup"><span data-stu-id="40533-108">Selecting simple properties</span></span>
 
 <span data-ttu-id="40533-109">In Azure PowerShell is voor elke cmdlet een standaardopmaak gedefinieerd.</span><span class="sxs-lookup"><span data-stu-id="40533-109">Azure PowerShell has default formatting defined for each cmdlet.</span></span> <span data-ttu-id="40533-110">De meest algemene eigenschappen voor elk resourcetype worden automatisch weergegeven in een tabel- of lijstweergave.</span><span class="sxs-lookup"><span data-stu-id="40533-110">The most common properties for each resource type are displayed in a table or list format automatically.</span></span> <span data-ttu-id="40533-111">Zie [Queryresultaten opmaken](formatting-output.md) voor meer informatie over het opmaken van uitvoer.</span><span class="sxs-lookup"><span data-stu-id="40533-111">For more information about formatting output, see [Formatting query results](formatting-output.md).</span></span>
 
@@ -55,8 +53,7 @@ MyUnbuntu1610 MYWESTEURG        westeurope
 MyWin2016VM   MYWESTEURG        westeurope
 ```
 
-## <span data-ttu-id="40533-115">Complexe geneste eigenschappen selecteren</span><span class="sxs-lookup"><span data-stu-id="40533-115">Selecting complex nested properties</span></span>
-<a id="selecting-complex-nested-properties" class="xliff"></a>
+## <a name="selecting-complex-nested-properties"></a><span data-ttu-id="40533-115">Complexe geneste eigenschappen selecteren</span><span class="sxs-lookup"><span data-stu-id="40533-115">Selecting complex nested properties</span></span>
 
 <span data-ttu-id="40533-116">Als de eigenschap die u wilt selecteren, diep is genest in de JSON-uitvoer, moet u het volledige pad naar die geneste eigenschap opgeven.</span><span class="sxs-lookup"><span data-stu-id="40533-116">If the property you want to select is nested deep in the JSON output you need to supply the full path to that nested property.</span></span> <span data-ttu-id="40533-117">Het volgende voorbeeld laat zien hoe de VM-naam en het besturingssysteemtype voor de cmdlet `Get-AzureRmVM` kunnen worden geselecteerd.</span><span class="sxs-lookup"><span data-stu-id="40533-117">The following example shows how to select the VM Name and the OS type from the `Get-AzureRmVM` cmdlet.</span></span>
 
@@ -71,8 +68,7 @@ MyUnbuntu1610   Linux
 MyWin2016VM   Windows
 ```
 
-## <span data-ttu-id="40533-118">Filterresultaat van de cmdlet Where-Object</span><span class="sxs-lookup"><span data-stu-id="40533-118">Filter result using the Where-Object cmdlet</span></span>
-<a id="filter-result-using-the-where-object-cmdlet" class="xliff"></a>
+## <a name="filter-result-using-the-where-object-cmdlet"></a><span data-ttu-id="40533-118">Filterresultaat van de cmdlet Where-Object</span><span class="sxs-lookup"><span data-stu-id="40533-118">Filter result using the Where-Object cmdlet</span></span>
 
 <span data-ttu-id="40533-119">Met de cmdlet `Where-Object` kunt u het resultaat op basis van een eigenschapswaarde filteren.</span><span class="sxs-lookup"><span data-stu-id="40533-119">The `Where-Object` cmdlet allows you to filter the result based on any property value.</span></span> <span data-ttu-id="40533-120">In het volgende voorbeeld worden met het filter alleen de virtuele machines geselecteerd die de tekst 'RGD' in hun naam hebben.</span><span class="sxs-lookup"><span data-stu-id="40533-120">In the following example, the filter selects only VMs that have the text "RGD" in their name.</span></span>
 

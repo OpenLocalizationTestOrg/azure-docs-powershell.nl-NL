@@ -1,6 +1,6 @@
 ---
-title: <span data-ttu-id="0a441-101">Queryresultaten opmaken| Microsoft Docs</span><span class="sxs-lookup"><span data-stu-id="0a441-101">Formatting query results | Microsoft Docs</span></span>
-description: <span data-ttu-id="0a441-102">Query's uitvoeren op Azure-resources en resultaten opmaken.</span><span class="sxs-lookup"><span data-stu-id="0a441-102">How to query for resources in Azure and format the results.</span></span>
+title: Queryresultaten opmaken| Microsoft Docs
+description: Query's uitvoeren op Azure-resources en resultaten opmaken.
 services: azure
 author: sdwheeler
 ms.author: sewhee
@@ -16,8 +16,7 @@ ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 06/29/2017
 ---
-# <span data-ttu-id="0a441-103">Queryresultaten opmaken</span><span class="sxs-lookup"><span data-stu-id="0a441-103">Formatting query results</span></span>
-<a id="formatting-query-results" class="xliff"></a>
+# <a name="formatting-query-results"></a><span data-ttu-id="0a441-103">Queryresultaten opmaken</span><span class="sxs-lookup"><span data-stu-id="0a441-103">Formatting query results</span></span>
 
 <span data-ttu-id="0a441-104">Standaard heeft de uitvoer van elke PowerShell-cmdlet een voorgedefinieerde opmaak, zodat deze gemakkelijk leesbaar is.</span><span class="sxs-lookup"><span data-stu-id="0a441-104">By default each PowerShell cmdlet has predefined formatting of output making it easy to read.</span></span>  <span data-ttu-id="0a441-105">PowerShell biedt ook de flexibiliteit om de uitvoer aan te passen of de uitvoer van de cmdlet te converteren naar een andere opmaak met de volgende cmdlets:</span><span class="sxs-lookup"><span data-stu-id="0a441-105">PowerShell also provides the flexibility to adjust the output or convert the cmdlet output to a different format with the following cmdlets:</span></span>
 
@@ -28,8 +27,7 @@ ms.lasthandoff: 06/29/2017
 | `Format-Table`  | `ConvertTo-Json` |
 | `Format-Wide`   | `ConvertTo-Xml`  |
 
-## <span data-ttu-id="0a441-108">Voorbeelden van opmaak</span><span class="sxs-lookup"><span data-stu-id="0a441-108">Formatting examples</span></span>
-<a id="formatting-examples" class="xliff"></a>
+## <a name="formatting-examples"></a><span data-ttu-id="0a441-108">Voorbeelden van opmaak</span><span class="sxs-lookup"><span data-stu-id="0a441-108">Formatting examples</span></span>
 
 <span data-ttu-id="0a441-109">In dit voorbeeld halen we een lijst met virtuele Azure-machines in ons standaardabonnement op.</span><span class="sxs-lookup"><span data-stu-id="0a441-109">In this example we get a list of Azure VMs in our default subscription.</span></span>  <span data-ttu-id="0a441-110">Met de opdracht Get-AzureRmVM wordt uitvoer standaard als een tabel opgemaakt.</span><span class="sxs-lookup"><span data-stu-id="0a441-110">The Get-AzureRmVM command defaults output into a table format.</span></span>
 
@@ -75,8 +73,7 @@ Location          : westeurope
 ResourceGroupName : MYWESTEURG
 ```
 
-## <span data-ttu-id="0a441-116">Converteren naar andere gegevenstypen</span><span class="sxs-lookup"><span data-stu-id="0a441-116">Converting to other data types</span></span>
-<a id="converting-to-other-data-types" class="xliff"></a>
+## <a name="converting-to-other-data-types"></a><span data-ttu-id="0a441-116">Converteren naar andere gegevenstypen</span><span class="sxs-lookup"><span data-stu-id="0a441-116">Converting to other data types</span></span>
 
 <span data-ttu-id="0a441-117">PowerShell biedt ook de mogelijkheid uitvoer op meerdere manieren op te maken, overeenkomstig uw behoeften.</span><span class="sxs-lookup"><span data-stu-id="0a441-117">PowerShell also offers multiple output format you can use to meet your needs.</span></span>  <span data-ttu-id="0a441-118">In het volgende voorbeeld gebruiken we de cmdlet `Select-Object` om kenmerken van de virtuele machines in ons abonnement op te halen en wordt de uitvoer geconverteerd naar een CSV-indeling, zodat deze eenvoudig in een database of spreadsheet kan worden geïmporteerd.</span><span class="sxs-lookup"><span data-stu-id="0a441-118">In the following example we use the `Select-Object` cmdlet to get attributes of the virtual machines in our subscription and and convert the output to CSV format for easy import into a database or spreadsheet.</span></span>
 

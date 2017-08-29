@@ -17,13 +17,11 @@ ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 06/29/2017
 ---
-# <span data-ttu-id="936e8-103">Releaseopmerkingen</span><span class="sxs-lookup"><span data-stu-id="936e8-103">Release notes</span></span>
-<a id="release-notes" class="xliff"></a>
+# <a name="release-notes"></a><span data-ttu-id="936e8-103">Releaseopmerkingen</span><span class="sxs-lookup"><span data-stu-id="936e8-103">Release notes</span></span>
 
 <span data-ttu-id="936e8-104">Dit is een overzicht van de wijzigingen die in deze release van Azure PowerShell zijn doorgevoerd.</span><span class="sxs-lookup"><span data-stu-id="936e8-104">This is a list of changes made to Azure PowerShell in this release.</span></span>
 
-## <span data-ttu-id="936e8-105">Versie 1.7.0</span><span class="sxs-lookup"><span data-stu-id="936e8-105">Version 1.7.0</span></span>
-<a id="version-170" class="xliff"></a>
+## <a name="version-170"></a><span data-ttu-id="936e8-105">Versie 1.7.0</span><span class="sxs-lookup"><span data-stu-id="936e8-105">Version 1.7.0</span></span>
 
 * <span data-ttu-id="936e8-106">**Gedragswijziging voor de parameters -Force, –Confirm en $ConfirmPreference voor alle cmdlets. We wijzigen deze implementatie, zodat deze in overeenstemming is met de PowerShell-richtlijnen. Dit betekent voor de meeste cmdlets dat de parameter Force wordt verwijderd en de prompt ShouldProcess wordt overgeslagen. Gebruikers moeten de parameter -Confirm:$false in de PowerShell-scripts opnemen.**</span><span class="sxs-lookup"><span data-stu-id="936e8-106">**Behavioral change for -Force, –Confirm and $ConfirmPreference parameters for all cmdlets. We are changing this implementation to be in line with PowerShell guidelines. For most cmdlets, this means removing the Force parameter and to skip the ShouldProcess prompt, users will need to include the parameter: ‘-Confirm:$false’ in their PowerShell scripts.**</span></span> <span data-ttu-id="936e8-107">Deze wijzigingen hebben betrekking op de volgende problemen:</span><span class="sxs-lookup"><span data-stu-id="936e8-107">This changes are addressing following issues:</span></span>
   - <span data-ttu-id="936e8-108">De correcte implementatie van de –WhatIf-functionaliteit, zodat een gebruiker de gevolgen van een cmdlet of script kan bepalen zonder daadwerkelijk wijzigingen door te voeren</span><span class="sxs-lookup"><span data-stu-id="936e8-108">Correct implementation of –WhatIf functionality, allowing a user to determine the effects of a cmdlet or script without making any actual changes</span></span>
