@@ -10,15 +10,41 @@ ms.service: azure-powershell
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 05/15/2017
-ms.openlocfilehash: 368404bcb5218814b4965bb1bcda1e2876441d2a
-ms.sourcegitcommit: 226527be7cb647acfe2ea9ab151185053ab3c6db
+ms.openlocfilehash: 9cee582f74b7f3260c6ae167a8ac358d360ad8ab
+ms.sourcegitcommit: 45587b5091293288e16cfae8ac412e0d42f8f450
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/29/2017
+ms.lasthandoff: 08/15/2017
 ---
 # <a name="other-installation-methods"></a>Andere installatiemethoden
 
 Azure PowerShell kent meerdere installatiemethoden. Het gebruik van PowerShellGet met PowerShell Gallery verdient de voorkeur. Azure PowerShell kan worden geïnstalleerd met het webplatforminstallatieprogramma (WebPI) of met het MSI-bestand dat beschikbaar is via [GitHub](https://github.com/Azure/azure-powershell/releases/latest).
+
+## <a name="docker"></a>Docker
+
+We onderhouden een Docker-installatiekopie die vooraf is geconfigureerd met Azure PowerShell.
+
+Voer de container uit met `docker run`.
+
+```powershell
+docker run azuresdk/azure-powershell
+```
+
+Bovendien onderhouden we een subset cmdlets als een PowerShell Core-container.
+
+Voor Mac/Linux gebruikt u de installatiekopie `latest`.
+
+```bash
+docker run azuresdk/azure-powershell-core:latest
+```
+
+Voor Windows gebruikt u de installatiekopie `nanoserver`.
+
+```powershell
+docker run azuresdk/azure-powershell-core:nanoserver
+```
+
+Azure PowerShell wordt geïnstalleerd in de installatiekopie met behulp van `Install-Module` uit de [PowerShell Gallery](https://www.powershellgallery.com/).
 
 ## <a name="install-using-the-web-platform-installer"></a>Installeren met het webplatforminstallatieprogramma
 
