@@ -10,7 +10,6 @@
       "locale": "nl-NL",
       "monikers": [],
       "open_to_public_contributors": true,
-
       "type_mapping": {
         "Conceptual": "Content",
         "ManagedReference": "Content",
@@ -31,7 +30,9 @@
     }
   ],
   "notification_subscribers": [],
-  "branches_to_filter": [],
+  "branches_to_filter": [
+    "live-sxs"
+  ],
   "skip_source_output_uploading": false,
   "git_repository_branch_open_to_public_contributors": "live",
   "dependent_repositories": [
