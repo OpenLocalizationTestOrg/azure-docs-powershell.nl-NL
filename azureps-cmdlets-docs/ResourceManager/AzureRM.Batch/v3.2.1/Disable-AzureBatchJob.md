@@ -11,7 +11,7 @@ gitcommit: https://github.com/Azure/azure-powershell/blob/8810c0614b76be8d014616
 # Disable-AzureBatchJob
 
 ## SYNOPSIS
-Disables a Batch job.
+The **Disable-AzureBatchJob** cmdlet disables a Batch job.
 
 ## SYNTAX
 
@@ -46,7 +46,7 @@ To obtain a **BatchAccountContext** object that contains access keys for your su
 ```yaml
 Type: BatchAccountContext
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: True
 Position: Named
@@ -57,16 +57,16 @@ Accept wildcard characters: False
 
 ### -DisableJobOption
 Specifies what to do with active tasks associated with the job that this cmdlet disables.
-Valid values are: 
+Valid values are:
 
-- Requeue 
-- Terminate 
+- Requeue
+- Terminate
 - Wait
 
 ```yaml
 Type: DisableJobOption
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 Accepted values: Requeue, Terminate, Wait
 
 Required: True
@@ -82,7 +82,7 @@ Specifies the ID of the job that this cmdlet disables.
 ```yaml
 Type: String
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: True
 Position: 0
@@ -115,5 +115,3 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 [Stop-AzureBatchJob](./Stop-AzureBatchJob.md)
 
 [Azure Batch Cmdlets](./AzureRM.Batch.md)
-
-
