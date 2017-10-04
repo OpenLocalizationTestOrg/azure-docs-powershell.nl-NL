@@ -2,6 +2,7 @@
   "build_entry_point": "docs",
   "need_generate_pdf": false,
   "need_generate_intellisense": false,
+  "enable_incremental_build": true,
   "docsets_to_publish": [
     {
       "docset_name": "azureps",
@@ -35,12 +36,22 @@
   ],
   "skip_source_output_uploading": false,
   "git_repository_branch_open_to_public_contributors": "live",
+  "git_repository_url_open_to_public_contributors": "https://github.com/azure/azure-docs-powershell.nl-NL",
   "dependent_repositories": [
     {
       "path_to_root": "_themes",
       "url": "https://github.com/Microsoft/templates.docs.msft.nl-NL",
       "branch": "master",
       "branch_mapping": {}
+    },
+    {                          
+      "path_to_root": "_repo.en-us",                          
+      "url": "https://github.com/Azure/azure-docs-powershell",                     
+      "branch": "live",                         
+      "branch_mapping": {                               
+        "live": "live",                              
+        "master": "master"                
+      }
     }
   ],
   "dependent_packages": [

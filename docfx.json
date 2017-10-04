@@ -1,6 +1,7 @@
 {
     "build": {
-        "content": [{
+        "content": [
+            {
                 "files": [
                     "**/*.yml",
                     "**/*.md"
@@ -110,8 +111,8 @@
                     "**/*.yml",
                     "**/*.md"
                 ],
-                "src": "azurermps-4.3.1",
-                "version": "azurermps-4.3.1",
+                "src": "azurermps-4.4.0",
+                "version": "azurermps-4.4.0",
                 "exclude": [
                     "docs-conceptual/**"
                 ],
@@ -122,8 +123,8 @@
                     "**/*.yml",
                     "**/*.md"
                 ],
-                "src": "azurermps-4.3.1/docs-conceptual",
-                "version": "azurermps-4.3.1",
+                "src": "azurermps-4.4.0/docs-conceptual",
+                "version": "azurermps-4.4.0",
                 "dest": "azure"
             },
             {
@@ -281,15 +282,19 @@
                 "version": "azureelasticdbjobsps-0.8.33"
             }
         ],
-        "resource": [{
-            "files": [
-                "bread/toc.json"
-            ],
-            "exclude": [
-                "**/obj/**",
-                "**/includes/**"
-            ]
-        }],
+        "resource": [
+            {
+                "files": [
+                    "media/**"
+                ],
+                "version": "azurermps-4.4.0"
+            },
+            {
+                "files": [
+                    "bread/toc.json"
+                ]
+            }
+        ],
         "versions": {
             "azurermps-1.2.9": {
                 "dest": "azurermps-1.2.9"
@@ -306,8 +311,8 @@
             "azurermps-3.8.0": {
                 "dest": "azurermps-3.8.0"
             },
-            "azurermps-4.3.1": {
-                "dest": "azurermps-4.3.1"
+            "azurermps-4.4.0": {
+                "dest": "azurermps-4.4.0"
             },
             "azuresmps-3.7.0": {
                 "dest": "azuresmps-3.7.0"
