@@ -9,22 +9,41 @@ ms.product: azure
 ms.service: azure-powershell
 ms.devlang: powershell
 ms.topic: get-started-article
-ms.date: 03/30/2017
-ms.openlocfilehash: f1c13317f0b42b547166a8130dd8c29bed5759c9
-ms.sourcegitcommit: db5c50de90764a9bdc7c1f1dbca3aed5bfeb05fa
+ms.date: 08/31/2017
+ms.openlocfilehash: 2cd3fc8e955ae826471dceee79d5e6b70070d416
+ms.sourcegitcommit: e6b7e20bbd04eda51416c56b13f867102b602d1a
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/22/2017
+ms.lasthandoff: 10/07/2017
 ---
 # <a name="getting-started-with-azure-powershell"></a>Aan de slag met Azure PowerShell
 
-Azure PowerShell is ontworpen om Azure-resources te beheren vanaf de opdrachtregel en voor het bouwen van automatiseringsscripts die op basis van Azure Resource Manager werken. Dit artikel helpt u op weg met het gebruik ervan en leert u wat de belangrijkste concepten zijn die eraan ten grondslag liggen.
+Azure PowerShell is ontworpen om Azure-resources te beheren vanaf de opdrachtregel en voor het bouwen van automatiseringsscripts die op basis van Azure Resource Manager werken. U kunt PowerShell in uw browser gebruiken met [Azure Cloud Shell](/azure/cloud-shell/overview), of installeren op uw lokale computer en dan gebruiken in een PowerShell-sessie. Dit artikel helpt u op weg met het gebruik ervan en leert u wat de belangrijkste concepten zijn die eraan ten grondslag liggen.
+
+## <a name="connect"></a>Verbinding maken
+
+De eenvoudigste manier om te beginnen is door [Cloud Shell te openen](/azure/cloud-shell/quickstart).
+
+1. Open Cloud Shell via de bovenste navigatiebalk van de Azure Portal.
+
+   ![Shell-pictogram](~/media/get-started-azureps/shell-icon.png)
+
+2. Kies het abonnement dat u wilt gebruiken en maak een opslagaccount.
+
+   ![Een opslagaccount maken](~/media/get-started-azureps/storage-prompt.png)
+
+Zodra de opslag is gemaakt, wordt er door Cloud Shell een PowerShell-sessie geopend in de browser.
+
+![Cloud Shell voor PowerShell](~/media/get-started-azureps/cloud-powershell.png)
+
+U kunt ook Azure PowerShell installeren en lokaal gebruiken in een PowerShell-sessie.
 
 ## <a name="install-azure-powershell"></a>Azure PowerShell installeren
 
 De eerste stap bestaat eruit dat u moet controleren of de nieuwste versie van Azure PowerShell is geïnstalleerd. Zie de [opmerkingen bij de release](./release-notes-azureps.md) voor meer informatie over de nieuwste release.
 
 1. [Installeer Azure PowerShell](install-azurerm-ps.md).
+
 2. Voer `Get-Module AzureRM` uit vanaf de opdrachtregel om te controleren of de installatie is geslaagd.
 
 ## <a name="log-in-to-azure"></a>Meld u aan bij Azure.
@@ -51,7 +70,7 @@ Laten we een resourcegroep maken met de naam 'MyResourceGroup' in de Azure-regio
 New-AzureRmResourceGroup -Name 'myResourceGroup' -Location 'westeurope'
 ```
 
-```
+```Output
 ResourceGroupName : myResourceGroup
 Location          : westeurope
 ProvisioningState : Succeeded
@@ -123,7 +142,7 @@ New-AzureRmVM -ResourceGroupName $resourceGroup -Location $location -VM $vmConfi
 
 De opdracht `New-AzureRmVM` produceert resultaten wanneer de virtuele machine geheel klaar is en gereed is voor gebruik.
 
-```
+```Output
 RequestId IsSuccessStatusCode StatusCode ReasonPhrase
 --------- ------------------- ---------- ------------
                          True         OK OK
@@ -135,7 +154,7 @@ Meld u nu aan bij uw nieuwe virtuele Windows Server-machine en gebruik daarvoor 
 $publicIp | Select-Object Name,IpAddress
 ```
 
-```
+```Output
 Name                  IpAddress
 ----                  ---------
 mypublicdns1400512543 xx.xx.xx.xx
@@ -143,12 +162,11 @@ mypublicdns1400512543 xx.xx.xx.xx
 
 Als u met een Windows-computer werkt, kunt u dit vanaf de opdrachtregel doen met de mstsc-opdracht:
 
-```
+```powershell
 mstsc /v:xx.xxx.xx.xxx
 ```
 
 Gebruik om u aan te melden dezelfde combinatie van gebruikersnaam en wachtwoord die u hebt gebruikt toen u de virtuele machine maakte.
-
 
 ## <a name="create-a-linux-virtual-machine"></a>Een virtuele Linux-machine maken
 
@@ -219,7 +237,7 @@ Nu de virtuele machine is gemaakt, kunt u zich aanmelden bij uw nieuwe virtuele 
 ssh xx.xxx.xxx.xxx
 ```
 
-```
+```Output
 Welcome to Ubuntu 14.04.4 LTS (GNU/Linux 3.19.0-65-generic x86_64)
 
  * Documentation:  https://help.ubuntu.com/
@@ -247,7 +265,7 @@ individual files in /usr/share/doc/*/copyright.
 Ubuntu comes with ABSOLUTELY NO WARRANTY, to the extent permitted by
 applicable law.
 
-my-login@MyLinuxVM:~$
+my-login@MyLinuxVM:../../..$
 ```
 
 ## <a name="creating-other-resources-in-azure"></a>Andere resources in Azure maken
@@ -291,7 +309,7 @@ Get-AzureRmResource |
     Select-Object Name,Location,ResourceType
 ```
 
-```
+```Output
 Name                                                  Location   ResourceType
 ----                                                  --------   ------------
 myLinuxVM_OsDisk_1_36ca038791f642ba91270879088c249a   westeurope Microsoft.Compute/disks
@@ -320,7 +338,7 @@ Remove-AzureRmVM -Name myWindowsVM -ResourceGroupName myResourceGroup
 
 U wordt gevraagd om te bevestigen dat u de resource wilt verwijderen.
 
-```
+```Output
 Confirm
 Are you sure you want to remove resource group 'myResourceGroup'
 [Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): Y
@@ -332,7 +350,7 @@ U kunt ook een opdracht gebruiken om veel resources in één keer te verwijderen
 Remove-AzureRmResourceGroup -Name myResourceGroup
 ```
 
-```
+```Output
 Confirm
 Are you sure you want to remove resource group 'myResourceGroup'
 [Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): Y
@@ -351,5 +369,5 @@ Voor meer informatie over het gebruik van Azure PowerShell kunt u onze meest voo
 * [Azure PowerShell gebruiken om service-principals in Azure te maken](create-azure-service-principal-azureps.md)
 * Lees de opmerkingen bij de release over het migreren van een oudere versie: [https://github.com/Azure/azure-powershell/tree/dev/documentation/release-notes](https://github.com/Azure/azure-powershell/tree/dev/documentation/release-notes).
 * Hulp van de community:
-  + [Azure-forum op MSDN](http://go.microsoft.com/fwlink/p/?LinkId=320212)
-  + [Stackoverflow](http://go.microsoft.com/fwlink/?LinkId=320213)
+  * [Azure-forum op MSDN](http://go.microsoft.com/fwlink/p/?LinkId=320212)
+  * [Stackoverflow](http://go.microsoft.com/fwlink/?LinkId=320213)

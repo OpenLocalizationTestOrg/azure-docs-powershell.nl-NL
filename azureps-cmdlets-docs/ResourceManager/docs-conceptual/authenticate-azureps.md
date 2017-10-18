@@ -10,11 +10,11 @@ ms.service: azure-powershell
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 05/15/2017
-ms.openlocfilehash: f6d249ca5bb09c4fe8445ba5b339ffa6012815ed
-ms.sourcegitcommit: 226527be7cb647acfe2ea9ab151185053ab3c6db
+ms.openlocfilehash: 1af5aeffb8e87e916df3e2440a84805935136c0f
+ms.sourcegitcommit: e6b7e20bbd04eda51416c56b13f867102b602d1a
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/29/2017
+ms.lasthandoff: 10/07/2017
 ---
 # <a name="log-in-with-azure-powershell"></a>Aanmelden met Azure PowerShell
 
@@ -52,6 +52,12 @@ Service-principals stellen u in staat om niet-interactieve accounts te maken, di
     SubscriptionName      : My Production Subscription
     CurrentStorageAccount :
     ```
+
+### <a name="log-in-using-an-azure-vm-managed-service-identity"></a>Aanmelden met een Managed Service Identity van Azure VM
+
+Managed Service Identity (MSI) is een preview-functie van Azure Active Directory. U kunt een MSI-service-principal gebruiken om u aan te melden, waarna u een token ontvangt waarmee u alleen vanuit de app toegang kunt krijgen tot andere resources.
+
+Meer informatie over MSI leest u in [How to use an Azure VM Managed Service Identity (MSI) for sign-in and token acquisition](/azure/active-directory/msi-how-to-get-access-token-using-msi) (Een Managed Service Identity (MSI) van Azure VM gebruiken voor aanmelden en token ophalen).
 
 ## <a name="log-in-to-another-cloud"></a>Aanmelden bij een andere cloud
 
