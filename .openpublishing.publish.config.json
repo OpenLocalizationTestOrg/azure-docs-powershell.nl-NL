@@ -35,6 +35,7 @@
   ],
   "skip_source_output_uploading": false,
   "git_repository_branch_open_to_public_contributors": "live",
+  "git_repository_url_open_to_public_contributors": "https://github.com/azure/azure-docs-powershell.nl-NL",
   "dependent_repositories": [
     {
       "path_to_root": "_themes",
