@@ -25,7 +25,7 @@
       ],
       "customized_tasks": {
         "docset_prebuild": [
-          "_dependentPackages/Microsoft.OpenPublishing.AzurePSPlugin/tools/Restructure.ps1"
+          "_dependentPackages/CommonPlugins/tools/PowerShellReference.ps1"
         ]
       }
     }
@@ -44,26 +44,17 @@
       "branch": "master",
       "branch_mapping": {}
     },
-    {                          
-      "path_to_root": "_repo.en-us",                          
-      "url": "https://github.com/Azure/azure-docs-powershell",                     
-      "branch": "live",                         
-      "branch_mapping": {                               
-        "live": "live",                              
-        "master": "master"                
-      }
+    {
+      "path_to_root": "dotnet-xref",
+      "url": "https://github.com/MicrosoftDocs/dotnet-xref",
+      "branch": "live",
+      "branch_mapping": {}
     }
   ],
   "dependent_packages": [
     {
       "path_to_root": "_dependentPackages/azurecli.plugins",
       "id": "opbuild.templates.azurecli",
-      "version": "latest",
-      "nuget_feed": "https://www.myget.org/F/op/api/v2"
-    },
-    {
-      "id": "Microsoft.OpenPublishing.AzurePSPlugin",
-      "path_to_root": "_dependentPackages/Microsoft.OpenPublishing.AzurePSPlugin",
       "version": "latest",
       "nuget_feed": "https://www.myget.org/F/op/api/v2"
     },
@@ -76,9 +67,7 @@
     }
   ],
   "monikerPath": [
-    "azureps-cmdlets-docs/ResourceManager/mapping/monikerMapping.json",
-    "azureps-cmdlets-docs/ServiceManagement/mapping/monikerMapping.json",
-    "azureps-cmdlets-docs/AzureStack/mapping/monikerMapping.json"
+    "mapping/monikerMapping.json"
   ],
   "need_generate_pdf_url_template": false,
   "dest": "_site"
