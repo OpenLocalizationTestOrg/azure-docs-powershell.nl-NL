@@ -10,10 +10,10 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 03/06/2017
 ms.openlocfilehash: 164af369d49e3044e5409c28d8b6145ebc067313
-ms.sourcegitcommit: 020066d68d4ab68da162a4ae0cb4e239241f950f
+ms.sourcegitcommit: b256bf48e15ee98865de0fae50e7b81878b03a54
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="installing-the-azure-powershell-service-management-module"></a>De Azure PowerShell Service Management-module installeren
 

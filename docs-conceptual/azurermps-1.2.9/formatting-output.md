@@ -11,10 +11,10 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 03/30/2017
 ms.openlocfilehash: 2b23af1ef84b7c91abdcbe0738b29b068f82fd32
-ms.sourcegitcommit: 226527be7cb647acfe2ea9ab151185053ab3c6db
+ms.sourcegitcommit: b256bf48e15ee98865de0fae50e7b81878b03a54
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/29/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="formatting-query-results"></a>Queryresultaten opmaken
 

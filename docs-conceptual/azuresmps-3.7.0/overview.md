@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.author: sewhee
 ms.manager: carmonm
 ms.openlocfilehash: d9a99d05eb2a1ca269f94cfbe6df4b64cec8a2f6
-ms.sourcegitcommit: 226527be7cb647acfe2ea9ab151185053ab3c6db
+ms.sourcegitcommit: b256bf48e15ee98865de0fae50e7b81878b03a54
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/29/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="overview-of-the-azure-powershell-service-management-module"></a>Overzicht van Azure PowerShell Service Management-module
 

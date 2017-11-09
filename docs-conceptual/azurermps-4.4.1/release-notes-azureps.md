@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.workload: 
 ms.date: 07/26/2017
 ms.openlocfilehash: d8a891673df343551cbd805016c2d25ee4e31c8c
-ms.sourcegitcommit: 9d2d35944106bdb6758853b050089bc804e6b9d2
+ms.sourcegitcommit: b256bf48e15ee98865de0fae50e7b81878b03a54
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="release-notes"></a>Releaseopmerkingen
 

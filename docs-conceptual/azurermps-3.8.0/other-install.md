@@ -11,10 +11,10 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 09/06/2017
 ms.openlocfilehash: 73c099375cecc8abdd5d6179109513946e7e793b
-ms.sourcegitcommit: 202ec2df66c40a60f47ea06b30a6701ad444d229
+ms.sourcegitcommit: b256bf48e15ee98865de0fae50e7b81878b03a54
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="other-installation-methods"></a>Andere installatiemethoden
 

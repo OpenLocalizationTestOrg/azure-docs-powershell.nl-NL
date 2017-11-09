@@ -12,10 +12,10 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.openlocfilehash: 6eda2d2a729331b212938aa2681d0188a25b734a
-ms.sourcegitcommit: 226527be7cb647acfe2ea9ab151185053ab3c6db
+ms.sourcegitcommit: b256bf48e15ee98865de0fae50e7b81878b03a54
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/29/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="create-an-azure-service-principal-with-azure-powershell"></a>Een Azure-service-principal maken met Azure PowerShell
 

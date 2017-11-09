@@ -9,14 +9,17 @@ ms.product: azure
 ms.service: azure-powershell
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 05/17/2017
-ms.openlocfilehash: 0c1500a8748a3aa4546c6ce1e8d16a635b056edb
+ms.date: 08/31/2017
+ms.openlocfilehash: 0e560332c87fdcc8b7365f2271de24481003a4d6
 ms.sourcegitcommit: b256bf48e15ee98865de0fae50e7b81878b03a54
 ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 11/03/2017
 ---
 # <a name="install-and-configure-azure-powershell"></a>Azure PowerShell installeren en configureren
+
+In dit artikel worden de stappen beschreven voor het installeren van de Azure PowerShell-modules in een Windows-omgeving.
+Als u Azure PowerShell wilt gebruiken in Mac OS- of Linux, raadpleegt u het volgende artikel: [Azure PowerShell installeren en configureren in MacOS en Linux](install-azurermps-maclinux.md).
 
 Installatie van Azure PowerShell via PowerShell Gallery heeft de voorkeur.
 
@@ -30,7 +33,7 @@ Get-Module PowerShellGet -list | Select-Object Name,Version,Path
 
 De uitvoer moet er ongeveer uitzien als hieronder is weergegeven:
 
-```
+```Output
 Name          Version Path
 ----          ------- ----
 PowerShellGet 1.0.0.1 C:\Program Files\WindowsPowerShell\Modules\PowerShellGet\1.0.0.1\PowerShellGet.psd1
@@ -39,7 +42,7 @@ PowerShellGet 1.0.0.1 C:\Program Files\WindowsPowerShell\Modules\PowerShellGet\1
 Zie de sectie [PowerShellGet ophalen](#how-to-get-powershellget) van dit artikel als PowerShellGet niet is geïnstalleerd.
 
 > [!NOTE]
-> Als u PowerShellGet gebruikt, hebt u een uitvoeringsbeleid nodig waarmee u scripts kunt uitvoeren. Zie [About Execution Policies](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.core/about/about_execution_policies) (Informatie over uitvoeringsbeleid) voor meer informatie over het uitvoeringsbeleid van PowerShell.
+> Als u PowerShellGet gebruikt, hebt u een uitvoeringsbeleid nodig waarmee u scripts kunt uitvoeren. Zie [About Execution Policies](/powershell/module/microsoft.powershell.core/about/about_execution_policies) (Informatie over uitvoeringsbeleid) voor meer informatie over het uitvoeringsbeleid van PowerShell.
 
 ## <a name="step-2-install-azure-powershell"></a>Stap 2: Azure PowerShell installeren
 
@@ -47,12 +50,12 @@ Als u Azure PowerShell via de PowerShell Gallery wilt installeren, hebt u verhoo
 
 ```powershell
 # Install the Azure Resource Manager modules from the PowerShell Gallery
-Install-Module AzureRM
+Install-Module AzureRM -AllowClobber
 ```
 
 PowerShell Gallery is standaard niet geconfigureerd als een vertrouwde opslagplaats voor PowerShellGet. De eerste keer dat u PSGallery gebruikt, ziet u het volgende bericht:
 
-```
+```Output
 Untrusted repository
 
 You are installing the modules from an untrusted repository. If you trust this repository, change
@@ -84,6 +87,10 @@ Zie de volgende artikelen voor meer informatie over het gebruik van Azure PowerS
 
 * [Aan de slag met Azure PowerShell](get-started-azureps.md)
 
+## <a name="reporting-issues-and-feedback"></a>Problemen melden en feedback geven
+
+Als er fouten optreden bij het gebruik van het hulpprogramma, kunt u dit melden via de sectie [Issues](https://github.com/Azure/azure-powershell/issues) van onze GitHub-repo. Als u feedback wilt geven vanaf de opdrachtregel, gebruikt u de cmdlet `Send-Feedback`.
+
 ## <a name="frequently-asked-questions"></a>Veelgestelde vragen
 
 ### <a name="how-to-get-powershellget"></a>PowerShellGet ophalen
@@ -111,7 +118,7 @@ Als u implementaties hebt die het klassieke implementatiemodel volgen, kunt u de
 
 Als er een eerdere versie van Azure PowerShell is geïnstalleerd, met de module Service Management, kunt u de volgende foutmelding krijgen:
 
-```
+```Output
 PackageManagement\Install-Package : A command with name 'Get-AzureStorageContainerAcl' is already
 available on this system. This module 'Azure.Storage' may override the existing commands. If you
 still want to install this module 'Azure.Storage', use -AllowClobber parameter.

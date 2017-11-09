@@ -11,10 +11,10 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.openlocfilehash: 1af5aeffb8e87e916df3e2440a84805935136c0f
-ms.sourcegitcommit: e6b7e20bbd04eda51416c56b13f867102b602d1a
+ms.sourcegitcommit: b256bf48e15ee98865de0fae50e7b81878b03a54
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/07/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="log-in-with-azure-powershell"></a>Aanmelden met Azure PowerShell
 
