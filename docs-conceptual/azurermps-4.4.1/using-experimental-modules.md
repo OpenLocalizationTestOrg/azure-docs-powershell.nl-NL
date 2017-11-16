@@ -11,10 +11,10 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 09/05/2017
 ms.openlocfilehash: 7a01957040be7c0498ef4f0e9b8f7297119221a5
-ms.sourcegitcommit: b256bf48e15ee98865de0fae50e7b81878b03a54
+ms.sourcegitcommit: 358d260a867c6ee2e8700b91f776ba4f1b0e24a5
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="using-experimental-azure-powershell-modules"></a>Werken met experimentele Azure PowerShell-modules
 
