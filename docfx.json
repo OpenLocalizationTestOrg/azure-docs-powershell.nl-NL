@@ -3,6 +3,13 @@
         "content": [
             {
                 "files": [
+                    "index.md"
+                ],
+                "src": "docs-conceptual",
+                "dest": "azure"
+            },
+            {
+                "files": [
                     "**/*.yml",
                     "**/*.md"
                 ],
@@ -125,6 +132,27 @@
                 ],
                 "src": "docs-conceptual/azurermps-4.4.1",
                 "version": "azurermps-4.4.1",
+                "dest": "azure"
+            },
+            {
+                "files": [
+                    "**/*.yml",
+                    "**/*.md"
+                ],
+                "src": "azurermps-5.0.0",
+                "version": "azurermps-5.0.0",
+                "exclude": [
+                    "docs-conceptual/**"
+                ],
+                "dest": "module"
+            },
+            {
+                "files": [
+                    "**/*.yml",
+                    "**/*.md"
+                ],
+                "src": "docs-conceptual/azurermps-5.0.0",
+                "version": "azurermps-5.0.0",
                 "dest": "azure"
             },
             {
@@ -314,6 +342,12 @@
             },
             {
                 "files": [
+                    "media/**"
+                ],
+                "version": "azurermps-5.0.0"
+            },
+            {
+                "files": [
                     "bread/toc.json"
                 ]
             }
@@ -336,6 +370,9 @@
             },
             "azurermps-4.4.1": {
                 "dest": "azurermps-4.4.1"
+            },
+            "azurermps-5.0.0": {
+              "dest": "azurermps-5.0.0"
             },
             "azuresmps-3.7.0": {
                 "dest": "azuresmps-3.7.0"
