@@ -3,17 +3,18 @@ title: De Azure PowerShell Service Management-module installeren en configureren
 description: Azure PowerShell voor het eerst installeren en configureren.
 services: azure
 author: sdwheeler
+ms.author: sewhee
 manager: carmonm
 ms.product: azure
 ms.service: azure-powershell
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 03/06/2017
-ms.openlocfilehash: 164af369d49e3044e5409c28d8b6145ebc067313
-ms.sourcegitcommit: b256bf48e15ee98865de0fae50e7b81878b03a54
+ms.openlocfilehash: f46fe25352c100976dd8fc3b1c48ddfc3926f906
+ms.sourcegitcommit: 7a1c08518b180de822c915db99b055b93a1459d7
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="installing-the-azure-powershell-service-management-module"></a>De Azure PowerShell Service Management-module installeren
 
