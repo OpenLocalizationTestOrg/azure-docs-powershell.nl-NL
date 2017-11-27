@@ -1,4 +1,4 @@
--- titel: Aan de slag met Azure PowerShell | Microsoft Docs description: services: azure author: sdwheeler ms.author: sewhee manager: carmonm ms.product: azure ms.service: azure-powershell ms.devlang: powershell ms.topic: get-started-article ms.date: 08/31/2017
+-- titel: Aan de slag met Azure PowerShell | Microsoft Docs description: services: azure author: sdwheeler ms.author: sewhee manager: carmonm ms.product: azure ms.service: azure-powershell ms.devlang: powershell ms.topic: get-started-article ms.date: 11/15/2017
 ---
 # <a name="getting-started-with-azure-powershell"></a>Aan de slag met Azure PowerShell
 
@@ -28,7 +28,7 @@ De eerste stap bestaat eruit dat u moet controleren of de nieuwste versie van Az
 
 1. [Installeer Azure PowerShell](install-azurerm-ps.md).
 
-2. Voer `Get-Module AzureRM` uit vanaf de opdrachtregel om te controleren of de installatie is geslaagd.
+2. Voer `Get-Module AzureRM -ListAvailable` uit vanaf de opdrachtregel om te controleren of de installatie is geslaagd.
 
 ## <a name="log-in-to-azure"></a>Meld u aan bij Azure.
 
