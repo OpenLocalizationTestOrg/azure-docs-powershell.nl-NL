@@ -10,11 +10,11 @@ ms.service: azure-powershell
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 03/30/2017
-ms.openlocfilehash: 2b23af1ef84b7c91abdcbe0738b29b068f82fd32
-ms.sourcegitcommit: 358d260a867c6ee2e8700b91f776ba4f1b0e24a5
+ms.openlocfilehash: 916cf8590de89762bade4f01ce5a502383d51796
+ms.sourcegitcommit: 95f216dfda4841358d4656fbdea1b7faaeecbdbd
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 11/27/2017
 ---
 # <a name="formatting-query-results"></a>Queryresultaten opmaken
 
@@ -58,7 +58,7 @@ MyWin2016VM   MYWESTEURG        westeurope
 U kunt de gegevens ook in de vorm van een lijst bekijken als u daar de voorkeur aan geeft. Het volgende voorbeeld laat dit zien met behulp van de cmdlet `Format-List`.
 
 ```powershell
-Get-AzureVM | Format-List Name,VmId,Location,ResourceGroupName
+Get-AzureRmVM | Format-List Name,VmId,Location,ResourceGroupName
 ```
 
 ```
