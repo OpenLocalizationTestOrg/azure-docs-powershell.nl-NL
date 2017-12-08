@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.manager: carmonm
 ms.date: 08/31/2017
 ms.openlocfilehash: cd6b57ff6234895ec4f7a4200f9df0852b2280c2
-ms.sourcegitcommit: 358d260a867c6ee2e8700b91f776ba4f1b0e24a5
+ms.sourcegitcommit: b256bf48e15ee98865de0fae50e7b81878b03a54
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="overview-of-azure-powershell"></a>Overzicht van Azure PowerShell
 
@@ -40,7 +40,7 @@ Als u niet bekend bent met PowerShell, kan een inleiding tot PowerShell van pas 
 * [PowerShell installeren](/powershell/scripting/installing-windows-powershell)
 * [Scripts uitvoeren met PowerShell](/powershell/scripting/scripting-with-windows-powershell)
 
-Of u kunt deze video bekijken: [PowerShell Basics: (Part 1) Getting Started with PowerShell](https://channel9.msdn.com/Blogs/Taste-of-Premier/PowerShellBasicsPart1) (De basisprincipes van PowerShell: (deel 1) Aan de slag met PowerShell).
+U kunt ook deze video bekijken: [PowerShell Basics: (Part 1) Getting Started with PowerShell](https://channel9.msdn.com/Blogs/Taste-of-Premier/PowerShellBasicsPart1) (De basisprincipes van PowerShell: (deel 1) Aan de slag met PowerShell).
 
 Of neem deel aan de cursus [Getting Started with PowerShell](https://mva.microsoft.com/liveevents/powershell-jumpstart) (Aan de slag met PowerShell) van de Microsoft Virtual Academy.
 
