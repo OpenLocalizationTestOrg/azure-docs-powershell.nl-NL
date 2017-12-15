@@ -1,6 +1,6 @@
 {
   "build_entry_point": "docs",
-  "need_generate_pdf": false,
+  "need_generate_pdf": true,
   "need_generate_intellisense": false,
   "enable_incremental_build": true,
   "docsets_to_publish": [
@@ -69,6 +69,6 @@
   "monikerPath": [
     "mapping/monikerMapping.json"
   ],
-  "need_generate_pdf_url_template": false,
+  "need_generate_pdf_url_template": true,
   "dest": "_site"
 }
