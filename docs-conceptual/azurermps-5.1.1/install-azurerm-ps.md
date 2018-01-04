@@ -10,11 +10,11 @@ ms.service: azure-powershell
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 08/31/2017
-ms.openlocfilehash: 0e560332c87fdcc8b7365f2271de24481003a4d6
-ms.sourcegitcommit: c42c7176276ec4e1cc3360a93e6b15d32083bf9f
+ms.openlocfilehash: 7b7177609ef9104525f173f468d44610b4ad1fe9
+ms.sourcegitcommit: db7f0ad39036bf60985ab7bf991b2d41fb34019f
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 12/27/2017
 ---
 # <a name="install-and-configure-azure-powershell"></a>Azure PowerShell installeren en configureren
 
@@ -114,7 +114,8 @@ Get-Module AzureRM -list | Select-Object Name,Version,Path
 
 Als u implementaties hebt die het klassieke implementatiemodel volgen, kunt u de Service Management-versie van Azure PowerShell installeren. Zie [Installing the Azure PowerShell Service Management module](/powershell/azure/servicemanagement/install-azure-ps) (De Azure PowerShell Service Management-module installeren) voor meer informatie. De Azure- en AzureRM-modules delen algemene afhankelijkheden. Als u zowel de Azure- als de AzureRM-module gebruikt, moet u dezelfde versie van elk pakket installeren.
 
-### <a id="update-azps"></a>Bijwerken naar een nieuwe versie van Azure PowerShell
+<a id="update-azps"></a>
+### <a name="updating-to-a-new-version-of-azure-powershell"></a>Bijwerken naar een nieuwe versie van Azure PowerShell
 
 Als er een eerdere versie van Azure PowerShell is geïnstalleerd, met de module Service Management, kunt u de volgende foutmelding krijgen:
 
