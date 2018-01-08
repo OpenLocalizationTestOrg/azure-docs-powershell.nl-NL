@@ -37,6 +37,8 @@
       items:
         - name: Experimentele modules gebruiken
           href: using-experimental-modules.md
+        - name: Cmdlets gelijktijdig uitvoeren met behulp van PowerShell-taken
+          href: using-psjobs.md
     - name: Releaseopmerkingen
       href: release-notes-azureps.md
 - name: Voorbeeldscripts

@@ -10,11 +10,11 @@ ms.service: azure-powershell
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 09/05/2017
-ms.openlocfilehash: 7a01957040be7c0498ef4f0e9b8f7297119221a5
-ms.sourcegitcommit: c42c7176276ec4e1cc3360a93e6b15d32083bf9f
+ms.openlocfilehash: c11e4503c07b0a0c4a71021bc511da723098188e
+ms.sourcegitcommit: 42bfd513fe646494d3d9eb0cfc35b049f7e1fbb7
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="using-experimental-azure-powershell-modules"></a>Werken met experimentele Azure PowerShell-modules
 
@@ -26,12 +26,7 @@ Om dit proces van experimenteren te vergemakkelijken, maken we nieuwe Azure Powe
 
 Deze modules kunnen zonder problemen naast bestaande Azure PowerShell-modules worden geïnstalleerd. De namen van de cmdlets zijn ingekort om kortere namen mogelijk te maken en om naamconflicten met bestaande, niet-experimentele cmdlets te voorkomen.
 
-De experimentele modules gebruiken de volgende naamconventie:
-
-- AzureRM.Compute.Experiments
-- AzureRM.Websites.Experiments
-
-Deze naamconventie is vergelijkbaar met de naamgeving van Preview-modules: `AzureRM.*.Preview`. Preview-modules zijn iets anders dan experimentele modules. Preview-modules implementeren nieuwe functionaliteit van Azure-services die alleen beschikbaar is als een Preview-aanbieding. Preview-modules vervangen bestaande Azure PowerShell-modules en gebruiken dezelfde namen voor cmdlets en parameters.
+Voor de experimentele modules wordt de volgende naamconventie gebruikt: `AzureRM.*.Experiments`. Deze naamconventie is vergelijkbaar met de naamgeving van Preview-modules: `AzureRM.*.Preview`. Preview-modules zijn iets anders dan experimentele modules. Preview-modules implementeren nieuwe functionaliteit van Azure-services die alleen beschikbaar is als een Preview-aanbieding. Preview-modules vervangen bestaande Azure PowerShell-modules en gebruiken dezelfde namen voor cmdlets en parameters.
 
 ## <a name="how-to-install-an-experimental-module"></a>Een experimentele module installeren
 
@@ -42,10 +37,10 @@ Find-Module AzureRM.*.Experiments
 ```
 
 ```Output
-Version    Name                                Repository           Description
--------    ----                                ----------           -----------
-1.0.0      AzureRM.Websites.Experiments        PSGallery            Create and deploy web applications using Azure Ap...
-1.0.25     AzureRM.Compute.Experiments         PSGallery            Azure Compute experiments for VM creation
+Version Name                         Repository Description
+------- ----                         ---------- -----------
+1.0.25  AzureRM.Compute.Experiments  PSGallery  Azure Compute experiments for VM creation
+1.0.0   AzureRM.Websites.Experiments PSGallery  Create and deploy web applications using Azure App Services.
 ```
 
 Als u een experimentele module wilt installeren, gebruikt u de volgende opdrachten vanuit een PowerShell-sessie met verhoogde bevoegdheden:
@@ -101,30 +96,3 @@ Het scenario 'Web-app maken' kan bijvoorbeeld een parameter `-Git` of `-AddRemot
 - Standaardgrootten: de 'grootten' voor resources kunnen verwarrend zijn voor gebruikers, aangezien veel providers van resources verschillende namen gebruiken (bijvoorbeeld 'Standard\_DS1\_v2' of 'S1'). De meeste gebruikers zijn echter meer geïnteresseerd in de kosten. Om die reden is het logisch om 'universele' grootten te definiëren op basis van een prijscategorie. Gebruikers kunnen een specifieke grootte kiezen of Azure PowerShell de _beste optie_ laten kiezen op basis van de resource of het budget.
 
 - Indeling van uitvoer: op dit moment retourneert Azure PowerShell een `PSObject` en verder is er weinig console-uitvoer. Azure PowerShell zal mogelijk bepaalde informatie moeten weergeven voor de gebruiker met betrekking tot de gebruikte 'slimme standaardinstellingen'.
-
-## <a name="try-using-the-experiments"></a>Experimenteren
-
-### <a name="install"></a>Installeren
-
-```powershell
-Install-Module AzureRM.Compute.Experiments
-```
-
-### <a name="create-a-vm"></a>Een virtuele machine maken
-
-```powershell
-$job = New-AzVm -Name MyVm -AsJob
-Receive-Job $job
-```
-
-### <a name="send-us-feedback"></a>Feedback versturen
-
-```powershell
-Send-Feedback
-```
-
-### <a name="uninstall-the-experimental-modules"></a>De experimentele modules verwijderen
-
-```powershell
-Uninstall-Module AzureRM.Compute.Experiments
-```
