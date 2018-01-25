@@ -9,41 +9,39 @@ ms.product: azure
 ms.service: azure-powershell
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 09/06/2017
-ms.openlocfilehash: 94b39c18acaca7a4b17b5207feed025442665acc
-ms.sourcegitcommit: c42c7176276ec4e1cc3360a93e6b15d32083bf9f
+ms.date: 01/12/2018
+ms.openlocfilehash: 64a86dfd4af7f3f0a91501e9a096ff190f7100cb
+ms.sourcegitcommit: d320fd5a2f468445c9e5aaa8d28dc363ece12ffc
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="install-and-configure-azure-powershell-on-macos-and-linux"></a>Azure PowerShell in MacOS en Linux installeren en configureren in MacOS en Linux
 
-Het is nu mogelijk om PowerShell 6 (bèta) en Azure PowerShell te installeren op niet-Windows-platforms.
-Het installatieproces van Azure PowerShell in MacOS en Linux verschilt niet veel van dat voor Windows, maar u dient eerst PowerShell 6 (bèta) te installeren.
+Het is nu mogelijk om PowerShell Core v6 en Azure PowerShell te installeren op niet-Windows-platforms.
+Het installatieproces van Azure PowerShell in macOS en Linux verschilt niet veel van dat voor Windows, maar u moet wel eerst PowerShell Core v6 installeren.
 
 > [!NOTE]
 
-> Op dit moment zijn PowerShell 6 (bèta) en Azure PowerShell voor .NET Core beide nog bètaversies.
+> Op dit moment zijn PowerShell Core v6 en Azure PowerShell voor .NET Core beide nog bètaversies.
 > De ondersteuning voor deze producten is beperkt. U wordt vriendelijk verzocht Issues aan te maken op GitHub als u problemen of fouten ontdekt.
 >
-> * [Problemen met PowerShell 6 (bèta)](https://github.com/PowerShell/PowerShell/issues)
+> * [Problemen met PowerShell Core v6](https://github.com/PowerShell/PowerShell/issues)
 > * [Problemen met Azure PowerShell](https://github.com/azure/azure-docs-powershell/issues)
 
-## <a name="step-1-install-powershell-6-beta"></a>Stap 1: PowerShell 6 (bèta) installeren
+## <a name="step-1-install-powershell-core-v6"></a>Stap 1: PowerShell Core v6 installeren
 
-Het installatieproces voor PowerShell 6 (bèta) is afhankelijk van het gebruikte besturingssysteem.
-Het is mogelijk PowerShell 6 (bèta) in Windows te installeren, maar in dit artikel wordt gekeken naar MacOS en Linux. Raadpleeg het artikel over het [installatieproces](./install-azurerm-ps.md) voor Windows, indien u Azure PowerShell in Windows wilt gebruiken.
+Het installatieproces voor PowerShell Core v6 is afhankelijk van het gebruikte besturingssysteem.
+Het is mogelijk PowerShell Core v6 in Windows te installeren, maar in dit artikel wordt gekeken naar macOS en Linux. Raadpleeg het artikel over het [installatieproces](./install-azurerm-ps.md) voor Windows, indien u Azure PowerShell in Windows wilt gebruiken.
 
-Om **PowerShell 6** (bèta) te installeren in Linux of MacOS, dient u:
+Het installatieproces voor **PowerShell Core v6** in Linux of Mac OS kan verschillen, afhankelijk van de Linux-distributie en de versie van het besturingssysteem.
+Gedetailleerde instructies vindt u in het volgende artikel:
 
-1. PowerShell te downloaden van [GitHub](https://github.com/powershell/powershell#get-powershell), voor uw specifieke besturingssystemen en versie
-2. de installatie-instructies te volgen
-   - [Linux](https://github.com/PowerShell/PowerShell/blob/master/docs/installation/linux.md)
-   - [MacOS](https://github.com/PowerShell/PowerShell/blob/master/docs/installation/linux.md#macos-1012)
+- [Installing PowerShell Core on macOS and Linux](/powershell/scripting/setup/installing-powershell-core-on-macos-and-linux) (PowerShell Core installeren in macOS en Linux)
 
 ## <a name="step-2-install-azure-powershell-for-net-core"></a>Stap 2: Azure PowerShell voor .NET Core installeren
 
-De PowerShellGet is standaard al geïnstalleerd bij PowerShell 6 (bèta). Hierdoor kunt u eenvoudig iedere module installeren die is gepubliceerd naar de PowerShell Gallery. Om Azure PowerShell te installeren, opent u een nieuwe PowerShell-sessie en voert u de volgende opdracht uit:
+De PowerShellGet-module is standaard al geïnstalleerd in PowerShell Core v6. Hierdoor kunt u eenvoudig iedere module installeren die is gepubliceerd naar de PowerShell Gallery. Om Azure PowerShell te installeren, opent u een nieuwe PowerShell-sessie en voert u de volgende opdracht uit:
 
 ```powershell
 Install-Module AzureRM.NetCore
@@ -55,6 +53,7 @@ Nadat de module is geïnstalleerd, moet u de module in uw PowerShell-sessie lade
 
 ```powershell
 Import-Module AzureRM.Netcore
+Import-Module AzureRM.Profile.Netcore
 ```
 
 Nadat het importeren is voltooid, kunt u uw geïnstalleerde module testen door u bij Azure aan te melden met de volgende opdracht:

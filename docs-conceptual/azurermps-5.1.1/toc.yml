@@ -37,10 +37,11 @@
       items:
         - name: Experimentele modules gebruiken
           href: using-experimental-modules.md
-        - name: Cmdlets gelijktijdig uitvoeren met behulp van PowerShell-taken
-          href: using-psjobs.md
     - name: Releaseopmerkingen
       href: release-notes-azureps.md
+      items:
+        - name: Belangrijke wijzigingen voor Azure PowerShell 5.x
+          href: migration-guide.5.0.0.md
 - name: Voorbeeldscripts
   items:
     - name: Virtuele Linux-machines
