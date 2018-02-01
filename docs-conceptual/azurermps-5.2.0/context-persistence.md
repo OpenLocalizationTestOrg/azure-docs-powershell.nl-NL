@@ -11,10 +11,10 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 08/31/2017
 ms.openlocfilehash: 8ef20796b64b16c78a653e293a57d5e752d89710
-ms.sourcegitcommit: c42c7176276ec4e1cc3360a93e6b15d32083bf9f
+ms.sourcegitcommit: 72f56597f0329d35779a3ea4ccea6293f0fd2502
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="persisting-user-logins-across-powershell-sessions"></a>Gebruikersaanmeldingen behouden tussen PowerShell-sessies
 
@@ -29,12 +29,12 @@ In de release van september 2017 van Azure PowerShell introduceren we een nieuwe
 
 Een *Azure-context* is een set gegevens die het doel van Azure PowerShell-cmdlets beschrijft. De context bestaat uit vijf onderdelen:
 
-- Een *account*: de gebruikersnaam of service-principal die wordt gebruikt voor de verificatie van de communicatie met Azure.
-- Een *abonnement*: het Azure-abonnement met de resources waarop een of meer bewerkingen worden uitgevoerd.
-- Een *tenant*: de Azure Active Directory-tenant met uw abonnement. Tenants zijn met name belangrijk bij verificatie via een service-principal.
-- Een *omgeving*: de specifieke Azure-cloud die als doel wordt ingesteld, meestal de algemene Azure-cloud.
-  U kunt echter ook kiezen voor de omgeving National of Government en voor on-premises clouds (Azure-Stack).
-- *Referenties*: de informatie die door Azure wordt gebruikt om uw identiteit te controleren en u te autoriseren voor toegang tot resources in Azure.
+- Een *account*: De gebruikersnaam of service-principal die wordt gebruikt voor de verificatie van de communicatie met Azure.
+- Een *abonnement*: Het Azure-abonnement met de resources waarop een of meer bewerkingen worden uitgevoerd.
+- Een *tenant*: De Azure Active Directory-tenant met uw abonnement. Tenants zijn met name belangrijk bij verificatie via een service-principal.
+- Een *omgeving*: De specifieke Azure-cloud die als doel wordt ingesteld, meestal de algemene Azure-cloud.
+  U kunt echter ook kiezen voor de omgeving National of Government en voor on-premises clouds (Azure Stack).
+- *Referenties*: De informatie die door Azure wordt gebruikt om uw identiteit te controleren en u te autoriseren voor toegang tot resources in Azure.
 
 In eerdere versies moest bij het openen van een nieuwe PowerShell-sessie steeds de context voor Azure worden ingesteld. Vanaf Azure PowerShell versie 4.4.0 kunt u de functie voor automatisch opslaan inschakelen en Azure-contexten opnieuw gebruiken wanneer u een nieuwe PowerShell-sessie opent.
 
@@ -42,10 +42,10 @@ In eerdere versies moest bij het openen van een nieuwe PowerShell-sessie steeds 
 
 De standaardinstelling is dat contextgegevens worden verwijderd door Azure PowerShell wanneer u een PowerShell-sessie sluit.
 
-Gebruik `Enable-AzureRmContextAutosave` om aan te geven dat Azure PowerShell uw context moet onthouden nadat de PowerShell-sessie is gesloten. De context en referentiegegevens worden dan automatisch opgeslagen in een speciale verborgen map in uw gebruikersmap (`%AppData%\Roaming\Windows Azure PowerShell`).
+Gebruik `Enable-AzureRmContextAutosave` om aan te geven dat Azure PowerShell uw context moet onthouden nadat de PowerShell-sessie is gesloten. De context en referentiegegevens worden dan automatisch opgeslagen in een speciale verborgen map in uw lijst met gebruikers (`%AppData%\Roaming\Windows Azure PowerShell`).
 In elke volgende PowerShell-sessie wordt dan automatisch de context uit de vorige sessie gebruikt.
 
-Met `Disable-AzureRmContextAutoSave` geeft u opdracht om de context en referenties te wissen. U moet zich dan iedere keer aanmelden bij Azure wanneer u een PowerShell-sessie opent.
+Met `Disable-AzureRmContextAutoSave` geeft u opdracht om de context en referenties te wissen. U moet u dan iedere keer aanmelden bij Azure wanneer u een PowerShell-sessie opent.
 
 De cmdlets waarmee u Azure contexten kunt beheren, zijn ook geschikt om het bereik op te geven voor wijzigingen die u gaat aanbrengen. Als u wilt dat wijzigingen alleen van toepassing zijn op de huidige PowerShell-sessie, gebruikt u `Process`. Met `CurrentUser` stelt u in dat de wijzigingen gelden voor elke PowerShell-sessie. Deze opties worden nader toegelicht in [Werken met contextbereiken](#Using-Context-Scopes).
 
@@ -81,7 +81,7 @@ Als u na aanmelding een nieuwe context wilt toevoegen, gebruikt u `Set-AzureRmCo
 PS C:\> Set-AzureRMContext -Subscription "Contoso Subscription 1" -Name "Contoso1"
 ```
 
-In het vorige voorbeeld wordt met behulp van uw huidige referenties een nieuwe context voor 'Contoso Subscription 1' toegevoegd. De naam van de nieuwe context is 'Contoso1'. Als u geen naam opgeeft voor de context, wordt er automatisch een standaardnaam gebruikt, op basis van de account-ID en de abonnements-ID.
+In het vorige voorbeeld wordt met behulp van uw huidige referenties een nieuwe context voor 'Contoso Subscription 1' toegevoegd. De naam van de nieuwe context is 'Contoso1'. Als u geen naam opgeeft voor de context, wordt er automatisch een standaardnaam gebruikt, op basis van de account-id en de abonnements-id.
 
 Als u de naam van een bestaande context wilt wijzigen, gebruikt u de cmdlet `Rename-AzureRmContext`. Bijvoorbeeld:
 
@@ -101,7 +101,7 @@ De context met de naam 'Contoso2' wordt nu niet gebruikt in de volgende sessie. 
 
 ## <a name="removing-credentials"></a>Referenties verwijderen
 
-Met behulp van `Remove-AzureRmAccount` (ook wel bekend als `Logout-AzureRmAccount`) kunt u alle referenties en bijbehorende contexten voor een gebruiker of service-principal verwijderen. Als u de cmdlet `Remove-AzureRmAccount` uitvoert zonder parameters, verwijdert u alle referenties en contexten die zijn gekoppeld aan de gebruiker of service-principal in de huidige context. U kunt een gebruikersnaam, de naam van een service-principal-naam of een context opgeven om alleen gegevens voor een bepaalde principal te verwijderen.
+Met behulp van `Remove-AzureRmAccount` (ook wel bekend als `Logout-AzureRmAccount`) kunt u alle referenties en bijbehorende contexten voor een gebruiker of service-principal verwijderen. Als u de cmdlet `Remove-AzureRmAccount` uitvoert zonder parameters, verwijdert u alle referenties en contexten die zijn gekoppeld aan de gebruiker of service-principal in de huidige context. U kunt een gebruikersnaam, de naam van een service-principal of een context opgeven om alleen gegevens voor een bepaalde principal te verwijderen.
 
 ```powershell
 Remove-AzureRmAccount user1@contoso.org
@@ -119,7 +119,7 @@ PS C:\> Select-AzureRmContext Contoso1 -Scope Process
 
 ## <a name="how-the-context-autosave-setting-is-remembered"></a>Locatie van instelling voor automatisch opslaan van context
 
-De instelling van AzureRmContextAutoSave wordt opgeslagen in de gebruikersmap van Azure PowerShell (`%AppData%\Roaming\Windows Azure PowerShell`). Het is mogelijk dat bepaalde typen computeraccounts geen toegang hebben tot deze map. Voor dergelijke scenario's kunt u deze omgevingsvariabele gebruiken:
+De instelling van AzureRmContextAutoSave wordt opgeslagen in de lijst met gebruikers van Azure PowerShell (`%AppData%\Roaming\Windows Azure PowerShell`). Het is mogelijk dat bepaalde typen computeraccounts geen toegang hebben tot deze lijst. Voor dergelijke scenario's kunt u deze omgevingsvariabele gebruiken:
 
 ```powershell
 $env:AzureRmContextAutoSave="true" | "false"
@@ -131,20 +131,20 @@ Als deze variabele is ingesteld op 'true', wordt de context automatisch opgeslag
 
 Nieuwe cmdlets voor het beheren van context
 
-- [Enable-AzureRmContextAutosave][enable]: de context opslaan tussen PowerShell-sessies.
+- [Enable-AzureRmContextAutosave][enable]: De context opslaan tussen PowerShell-sessies.
   Wijzigingen zijn van invloed op de algemene context.
-- [Disable-AzureRmContextAutosave][disable]: automatisch opslaan van context uitschakelen. Bij elke nieuwe PowerShell-sessie is opnieuw aanmelden vereist.
-- [Select-AzureRmContext][select]: een context selecteren als de standaardcontext. Alle volgende cmdlets gebruiken de referenties in deze context voor verificatie.
-- [Remove-AzureRmAccount][remove-cred]: alle referenties en contexten verwijderen die aan een account zijn gekoppeld.
-- [Remove-AzureRmContext][remove-context]: de opgegeven context verwijderen.
-- [Rename-AzureRmContext][rename]: de naam van een bestaande context wijzigen.
+- [Disable-AzureRmContextAutosave][disable]: Automatisch opslaan van context uitschakelen. Bij elke nieuwe PowerShell-sessie is opnieuw aanmelden vereist.
+- [Select-AzureRmContext][select]: Een context selecteren als de standaardcontext. Alle volgende cmdlets gebruiken de referenties in deze context voor verificatie.
+- [Remove-AzureRmAccount][remove-cred]: Alle referenties en contexten verwijderen die aan een account zijn gekoppeld.
+- [Remove-AzureRmContext][remove-context]: De opgegeven context verwijderen.
+- [Rename-AzureRmContext][rename]: De naam van een bestaande context wijzigen.
 
 Wijzigingen aan bestaande profiel-cmdlets
 
-- [Add-AzureRmAccount][login]: het bereik van de aanmelding instellen op het proces of de huidige gebruiker.
+- [Add-AzureRmAccount][login]: Het bereik van de aanmelding instellen op het proces of de huidige gebruiker.
   De naam van de standaardcontext kan na aanmelding worden opgegeven.
-- [Import-AzureRmContext][import]: het bereik van de aanmelding instellen op het proces of de huidige gebruiker.
-- [Set-AzureRmContext][set-context]: selectie toestaan van bestaande benoemde contexten, en bereik wijzigen (proces of huidige gebruiker).
+- [Import-AzureRmContext][import]: Het bereik van de aanmelding instellen op het proces of de huidige gebruiker.
+- [Set-AzureRmContext][set-context]: Selectie toestaan van bestaande benoemde contexten, en bereik wijzigen (proces of huidige gebruiker).
 
 <!-- Hyperlinks -->
 [enable]: /powershell/module/azurerm.profile/Enable-AzureRmContextAutosave
