@@ -1,7 +1,6 @@
 {
   "build_entry_point": "docs",
-  "need_generate_pdf": false,
-  "need_generate_intellisense": false,
+  "need_generate_pdf": true,
   "docsets_to_publish": [
     {
       "docset_name": "azureps",
@@ -14,7 +13,8 @@
         "Conceptual": "Content",
         "ManagedReference": "Content",
         "RestApi": "Content",
-        "AzurePSModulePage": "Content"
+        "AzurePSModulePage": "Content",
+        "Tutorial": "Content"
       },
       "build_entry_point": "docs",
       "template_folder": "_themes",
@@ -24,7 +24,7 @@
       ],
       "customized_tasks": {
         "docset_prebuild": [
-          "_dependentPackages/Microsoft.OpenPublishing.AzurePSPlugin/tools/Restructure.ps1"
+          "_dependentPackages/CommonPlugins/tools/PowerShellReference.ps1"
         ]
       }
     }
@@ -33,27 +33,51 @@
   "branches_to_filter": [
     "live-sxs"
   ],
-  "skip_source_output_uploading": false,
   "git_repository_branch_open_to_public_contributors": "live",
   "git_repository_url_open_to_public_contributors": "https://github.com/azure/azure-docs-powershell.nl-NL",
+  "skip_source_output_uploading": false,
+  "enable_incremental_build": true,
+  "contribution_branch_mappings": {},
   "dependent_repositories": [
     {
       "path_to_root": "_themes",
       "url": "https://github.com/Microsoft/templates.docs.msft.nl-NL",
       "branch": "master",
       "branch_mapping": {}
+    },
+    {
+      "path_to_root": "dotnet-xref",
+      "url": "https://github.com/MicrosoftDocs/dotnet-xref",
+      "branch": "live",
+      "branch_mapping": {}
+    },
+    {
+    "path_to_root": "_themes.pdf",
+    "url": "https://github.com/Microsoft/templates.docs.msft.pdf",
+    "branch": "master"
     }
   ],
+"branch_target_mapping": {
+     "live-sxs": [
+           "Publish",
+           "Pdf" 
+    ],
+    "live": [
+      "Publish",
+      "Pdf"
+    ]
+  },
+   "Targets": {  
+    "Pdf": {  
+    "template_folder": "_themes.pdf"  
+    }  
+  },
+  "need_generate_pdf_url_template": true,
+  "need_generate_intellisense": false,
   "dependent_packages": [
     {
       "path_to_root": "_dependentPackages/azurecli.plugins",
       "id": "opbuild.templates.azurecli",
-      "version": "latest",
-      "nuget_feed": "https://www.myget.org/F/op/api/v2"
-    },
-    {
-      "id": "Microsoft.OpenPublishing.AzurePSPlugin",
-      "path_to_root": "_dependentPackages/Microsoft.OpenPublishing.AzurePSPlugin",
       "version": "latest",
       "nuget_feed": "https://www.myget.org/F/op/api/v2"
     },
@@ -66,10 +90,7 @@
     }
   ],
   "monikerPath": [
-    "azureps-cmdlets-docs/ResourceManager/mapping/monikerMapping.json",
-    "azureps-cmdlets-docs/ServiceManagement/mapping/monikerMapping.json",
-    "azureps-cmdlets-docs/AzureStack/mapping/monikerMapping.json"
+    "mapping/monikerMapping.json"
   ],
-  "need_generate_pdf_url_template": false,
   "dest": "_site"
 }
