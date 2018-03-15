@@ -388,7 +388,7 @@ $consumergroup = Get-AzureRmEventHubConsumerGroup <parameters>
 
 ### <a name="add-azurermlogalertrule"></a>**Add-AzureRMLogAlertRule**
 - De cmdlet **Add-AzureRMLogAlertRule** is afgeschaft.
-- Na 1 oktober zal het gebruik van deze cmdlet niet langer effect hebben, omdat deze functionaliteit wordt overgedragen naar Waarschuwingen voor activiteitenlogboeken. Raadpleeg https://aka.ms/migratemealerts voor meer informatie.
+- Na 1 oktober zal het gebruik van deze cmdlet niet langer effect hebben, omdat deze functionaliteit wordt overgedragen naar Waarschuwingen voor activiteitenlogboeken. Zie https://aka.ms/migratemealerts voor meer informatie.
 
 ### <a name="get-azurermusage"></a>**Get-AzureRMUsage**
 - De cmdlet **Get-AzureRMUsage** is afgeschaft.
