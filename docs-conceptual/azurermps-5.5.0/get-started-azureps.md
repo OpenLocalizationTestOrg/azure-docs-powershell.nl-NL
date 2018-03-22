@@ -1,6 +1,6 @@
 ---
 title: Aan de slag met Azure PowerShell | Microsoft Docs
-description: 
+description: ''
 services: azure
 author: sdwheeler
 ms.author: sewhee
@@ -10,11 +10,11 @@ ms.service: azure-powershell
 ms.devlang: powershell
 ms.topic: get-started-article
 ms.date: 11/15/2017
-ms.openlocfilehash: af1eccfffed551e6025014e2fd9287f3e6ebf425
-ms.sourcegitcommit: 20af779cd523c758d40e23d60eb989a4ef982d5c
+ms.openlocfilehash: 24eb3cf1a58ac87d437d3471639cd9c8cec4070e
+ms.sourcegitcommit: 33738360a9bb22ff359dd854a29263e73e2b15d5
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 03/19/2018
 ---
 # <a name="getting-started-with-azure-powershell"></a>Aan de slag met Azure PowerShell
 
@@ -181,7 +181,7 @@ $location = "westeurope"
 $vmName = "myLinuxVM"
 
 # Definer user name and blank password
-$securePassword = ConvertTo-SecureString ' ' -AsPlainText -Force
+$securePassword = ConvertTo-SecureString 'azurepassword' -AsPlainText -Force
 $cred = New-Object System.Management.Automation.PSCredential ("azureuser", $securePassword)
 
 # Create a subnet configuration
