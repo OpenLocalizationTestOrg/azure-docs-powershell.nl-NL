@@ -14,10 +14,10 @@ metadata:
   ms.devlang: azure-powershell
   ms.technology: azure
   ms.openlocfilehash: bb5024927da7888dca406a522fa39dfe225afb89
-  ms.sourcegitcommit: 20af779cd523c758d40e23d60eb989a4ef982d5c
+  ms.sourcegitcommit: 15bf69bf95eceb936b3a429e741add95c308826a
   ms.translationtype: HT
   ms.contentlocale: nl-NL
-  ms.lasthandoff: 03/15/2018
+  ms.lasthandoff: 03/28/2018
 items:
 - durationInMinutes: 1
   content: >-
@@ -44,7 +44,32 @@ items:
     Voltooi het aanmeldingsproces door de weergegeven stappen in uw terminal te volgen.
 - durationInMinutes: 1
   title: Een resourcegroep maken
-  content: "In Azure worden alle resources toegewezen in een resourcebeheergroep. Resourcegroepen bieden logische groeperingen van resources, waardoor het gemakkelijker is om met resources als verzameling te werken.\nVoor deze zelfstudie worden alle gemaakte resources opgenomen in één groep met de naam `TutorialResources`.\n\n```powershell\nNew-AzureRmResourceGroup -Name TutorialResources -Location eastus\n```\n\n```Output\nResourceGroupName : TutorialResources\nLocation          : eastus\nProvisioningState : Succeeded\nTags              :\nResourceId        : /subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/resourceGroups/TutorialResources\n```"
+  content: >-
+    In Azure worden alle resources toegewezen in een resourcebeheergroep. Resourcegroepen bieden logische groeperingen van resources, waardoor het gemakkelijker is om met resources als verzameling te werken.
+
+    Voor deze zelfstudie worden alle gemaakte resources opgenomen in één groep met de naam `TutorialResources`.
+
+
+    ```powershell
+
+    New-AzureRmResourceGroup -Name TutorialResources -Location eastus
+
+    ```
+
+
+    ```Output
+
+    ResourceGroupName : TutorialResources
+
+    Location          : eastus
+
+    ProvisioningState : Succeeded
+
+    Tags              :
+
+    ResourceId        : /subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/resourceGroups/TutorialResources
+
+    ```
 - durationInMinutes: 1
   title: Beheerdersreferenties maken voor de VM
   content: >-
