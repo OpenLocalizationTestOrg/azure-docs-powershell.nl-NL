@@ -1,6 +1,6 @@
 ---
 title: Aan de slag met Azure PowerShell | Microsoft Docs
-description: 
+description: ''
 services: azure
 author: sdwheeler
 ms.author: sewhee
@@ -26,15 +26,15 @@ De eenvoudigste manier om te beginnen is door [Cloud Shell te openen](/azure/clo
 
 1. Open Cloud Shell via de bovenste navigatiebalk van de Azure Portal.
 
-   ![Shell-pictogram](/media/get-started-azureps/shell-icon.png)
+   ![Shell icon](/media/get-started-azureps/shell-icon.png)
 
 2. Kies het abonnement dat u wilt gebruiken en maak een opslagaccount.
 
-   ![Een opslagaccount maken](/media/get-started-azureps/storage-prompt.png)
+   ![Create a storage account](/media/get-started-azureps/storage-prompt.png)
 
 Zodra de opslag is gemaakt, wordt er door Cloud Shell een PowerShell-sessie geopend in de browser.
 
-![Cloud Shell voor PowerShell](/media/get-started-azureps/cloud-powershell.png)
+![Cloud Shell for PowerShell](/media/get-started-azureps/cloud-powershell.png)
 
 U kunt ook Azure PowerShell installeren en lokaal gebruiken in een PowerShell-sessie.
 
