@@ -10,11 +10,11 @@ ms.service: azure-powershell
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 05/15/2017
-ms.openlocfilehash: 1af5aeffb8e87e916df3e2440a84805935136c0f
-ms.sourcegitcommit: 15bf69bf95eceb936b3a429e741add95c308826a
+ms.openlocfilehash: f07dee0eed106e39879d58ae06ff08b787faa531
+ms.sourcegitcommit: 8376e0bc5f862d382d7283ba72990e3707591e7b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="log-in-with-azure-powershell"></a>Aanmelden met Azure PowerShell
 
@@ -22,7 +22,7 @@ Azure PowerShell ondersteunt meerdere aanmeldingsmethoden. De eenvoudigste manie
 
 ## <a name="interactive-log-in"></a>Interactief aanmelden
 
-1. Typ `Login-AzureRmAccount`. U krijgt een dialoogvenster te zien waarin wordt gevraagd naar uw Azure-referenties.
+1. Typ `Connect-AzureRmAccount`. U krijgt een dialoogvenster te zien waarin wordt gevraagd naar uw Azure-referenties.
 
 2. Typ het e-mailadres en het wachtwoord die bij uw account horen. Azure verifieert de referentiegegevens en slaat deze op. Vervolgens wordt het venster gesloten.
 
@@ -35,7 +35,7 @@ Service-principals stellen u in staat om niet-interactieve accounts te maken, di
 2. Meld u aan met de service-principal.
 
     ```powershell
-    Login-AzureRmAccount -ServicePrincipal -ApplicationId  "http://my-app" -Credential $pscredential -TenantId $tenantid
+    Connect-AzureRmAccount -ServicePrincipal -ApplicationId  "http://my-app" -Credential $pscredential -TenantId $tenantid
     ```
 
     U verkrijgt uw TenantId door u interactief aan te melden en vervolgens de TenantId uit uw abonnement op te halen.
@@ -64,7 +64,7 @@ Meer informatie over MSI leest u in [How to use an Azure VM Managed Service Iden
 Azure-cloudservices bieden verschillende omgevingen die voldoen aan de voorschriften voor gegevensverwerking van verschillende overheden. Als uw Azure-account zich in een van de overheidsclouds bevindt, moet u de omgeving opgeven wanneer u zich aanmeldt. Als uw account zich bijvoorbeeld in de China-cloud bevindt, moet u zich aanmelden met de volgende opdracht:
 
 ```powershell
-Login-AzureRmAccount -EnvironmentName AzureChinaCloud
+Connect-AzureRmAccount -Environment AzureChinaCloud
 ```
 
 Gebruik de volgende opdracht om een lijst met beschikbare omgevingen op te halen:

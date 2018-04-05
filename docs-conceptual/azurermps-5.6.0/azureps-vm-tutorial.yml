@@ -13,11 +13,11 @@ metadata:
   manager: carmonm
   ms.devlang: azure-powershell
   ms.technology: azure
-  ms.openlocfilehash: bb5024927da7888dca406a522fa39dfe225afb89
-  ms.sourcegitcommit: 15bf69bf95eceb936b3a429e741add95c308826a
+  ms.openlocfilehash: 41e63eac376d5490a28ba099d0a853b599c6e35f
+  ms.sourcegitcommit: 8376e0bc5f862d382d7283ba72990e3707591e7b
   ms.translationtype: HT
   ms.contentlocale: nl-NL
-  ms.lasthandoff: 03/28/2018
+  ms.lasthandoff: 03/30/2018
 items:
 - durationInMinutes: 1
   content: >-
@@ -36,7 +36,7 @@ items:
 
     ```powershell
 
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
 
     ```
 

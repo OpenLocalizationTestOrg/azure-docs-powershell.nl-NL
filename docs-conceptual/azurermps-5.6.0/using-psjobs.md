@@ -10,11 +10,11 @@ ms.service: azure-powershell
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 12/11/2017
-ms.openlocfilehash: 0a445a7db84c8deb6518b826b4096983669c5961
-ms.sourcegitcommit: 15bf69bf95eceb936b3a429e741add95c308826a
+ms.openlocfilehash: dfc1efa752c9c9fa42ad5904adacd83c2dc333b8
+ms.sourcegitcommit: 8376e0bc5f862d382d7283ba72990e3707591e7b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="running-cmdlets-in-parallel-using-powershell-jobs"></a>Cmdlets gelijktijdig uitvoeren met behulp van PowerShell-taken
 
@@ -23,7 +23,7 @@ Azure PowerShell is sterk afhankelijk van het uitvoeren van en wachten op netwer
 
 ## <a name="context-persistence-and-psjobs"></a>Contextpersistentie en PSJobs
 
-PSJobs worden in afzonderlijke processen uitgevoerd, wat betekent dat de gegevens van uw Azure-verbinding op correcte wijze moeten worden gedeeld met de taken die u maakt. Nadat u uw Azure-account met `Login-AzureRmAccount` aan uw PowerShell-sessie hebt gekoppeld, kunt u de context doorgeven aan een taak.
+PSJobs worden in afzonderlijke processen uitgevoerd, wat betekent dat de gegevens van uw Azure-verbinding op correcte wijze moeten worden gedeeld met de taken die u maakt. Nadat u uw Azure-account met `Connect-AzureRmAccount` aan uw PowerShell-sessie hebt gekoppeld, kunt u de context doorgeven aan een taak.
 
 ```powershell
 $creds = Get-Credential

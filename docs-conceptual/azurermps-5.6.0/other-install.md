@@ -10,11 +10,11 @@ ms.service: azure-powershell
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 09/06/2017
-ms.openlocfilehash: 8a88cce312b4cca002c342c04e1f97b966ae3d2f
-ms.sourcegitcommit: 15bf69bf95eceb936b3a429e741add95c308826a
+ms.openlocfilehash: fd5263a327fa8e4b70418bf6fa7702d8c5383733
+ms.sourcegitcommit: 8376e0bc5f862d382d7283ba72990e3707591e7b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="other-installation-methods"></a>Andere installatiemethoden
 
@@ -45,14 +45,14 @@ Get-Module -ListAvailable Azure* | Select-Object Name, Version, Path
 Wanneer u na een installatie cmdlets laadt of uitvoert, kunt u het volgende foutbericht ontvangen:
 
 ```
-PS C:\> Login-AzureRmAccount
-Login-AzureRmAccount : The term 'Login-AzureRmAccount' is not recognized as the name of a cmdlet,
+PS C:\> Connect-AzureRmAccount
+Connect-AzureRmAccount : The term 'Connect-AzureRmAccount' is not recognized as the name of a cmdlet,
 function, script file, or operable program. Check the spelling of the name, or if a path was
 included, verify that the path is correct and try again.
 At line:1 char:1
-+ Login-AzureRmAccount
++ Connect-AzureRmAccount
 + ~~~~~~~~~~~~~~~~~~~~~~~
-    + CategoryInfo          : ObjectNotFound: (Login-AzureRmAccount:String) [], CommandNotFoundException
+    + CategoryInfo          : ObjectNotFound: (Connect-AzureRmAccount:String) [], CommandNotFoundException
     + FullyQualifiedErrorId : CommandNotFoundException
 ```
 

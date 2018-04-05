@@ -10,11 +10,11 @@ ms.service: azure-powershell
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 08/31/2017
-ms.openlocfilehash: 8ef20796b64b16c78a653e293a57d5e752d89710
-ms.sourcegitcommit: 15bf69bf95eceb936b3a429e741add95c308826a
+ms.openlocfilehash: 4b2b3b690a8c5d6951b24d49091154c6fb479fe3
+ms.sourcegitcommit: 8376e0bc5f862d382d7283ba72990e3707591e7b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="persisting-user-logins-across-powershell-sessions"></a>Gebruikersaanmeldingen behouden tussen PowerShell-sessies
 
@@ -73,7 +73,7 @@ Als u het resultaat van de achtergrondtaak wilt weten, gebruikt u `Get-Job` om d
 
 ## <a name="creating-selecting-renaming-and-removing-contexts"></a>Contexten maken, selecteren, verwijderen en een andere naam geven
 
-Als u een context wilt maken, moet u zijn aangemeld bij Azure. Met de cmdlet `Add-AzureRmAccount` (of de bijbehorende alias `Login-AzureRmAccount`) stelt u de standaardcontext in die moet worden gebruikt door volgende Azure PowerShell-cmdlets. De cmdlet biedt ook toegang tot alle tenants of abonnementen die toegankelijk zijn met uw aanmeldingsreferenties.
+Als u een context wilt maken, moet u zijn aangemeld bij Azure. Met de cmdlet `Connect-AzureRmAccount` (of de bijbehorende alias `Login-AzureRmAccount`) stelt u de standaardcontext in die moet worden gebruikt door volgende Azure PowerShell-cmdlets. De cmdlet biedt ook toegang tot alle tenants of abonnementen die toegankelijk zijn met uw aanmeldingsreferenties.
 
 Als u na aanmelding een nieuwe context wilt toevoegen, gebruikt u `Set-AzureRmContext` (of de alias `Select-AzureRmSubscription`).
 
