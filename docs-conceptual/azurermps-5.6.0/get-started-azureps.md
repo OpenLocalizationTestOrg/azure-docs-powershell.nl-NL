@@ -10,11 +10,11 @@ ms.service: azure-powershell
 ms.devlang: powershell
 ms.topic: get-started-article
 ms.date: 11/15/2017
-ms.openlocfilehash: 24eb3cf1a58ac87d437d3471639cd9c8cec4070e
-ms.sourcegitcommit: 15bf69bf95eceb936b3a429e741add95c308826a
+ms.openlocfilehash: 12446697e57cc0a76b94309c2338239c16c7f580
+ms.sourcegitcommit: 8376e0bc5f862d382d7283ba72990e3707591e7b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="getting-started-with-azure-powershell"></a>Aan de slag met Azure PowerShell
 
@@ -30,7 +30,7 @@ De eenvoudigste manier om te beginnen is door [Cloud Shell te openen](/azure/clo
 
 2. Kies het abonnement dat u wilt gebruiken en maak een opslagaccount.
 
-   ![Een opslagaccount maken](~/media/get-started-azureps/storage-prompt.png)
+   ![Create a storage account](~/media/get-started-azureps/storage-prompt.png)
 
 Zodra de opslag is gemaakt, wordt er door Cloud Shell een PowerShell-sessie geopend in de browser.
 
@@ -50,9 +50,9 @@ De eerste stap bestaat eruit dat u moet controleren of de nieuwste versie van Az
 
 Interactief aanmelden:
 
-1. Typ `Login-AzureRmAccount`. U krijgt een dialoogvenster te zien waarin wordt gevraagd naar uw Azure-referenties. Met behulp van de optie '-EnvironmentName' kunt u zich aanmelden bij Azure China of Azure Duitsland.
+1. Typ `Connect-AzureRmAccount`. U krijgt een dialoogvenster te zien waarin wordt gevraagd naar uw Azure-referenties. Met behulp van de optie '-Environment' kunt u zich aanmelden bij Azure China of Azure Duitsland.
 
-   bijvoorbeeld: Login-AzureRmAccount - EnvironmentName AzureChinaCloud
+   Bijvoorbeeld: Connect-AzureRmAccount -Environment AzureChinaCloud
 
 2. Typ het e-mailadres en het wachtwoord die bij uw account horen. Azure verifieert de referentiegegevens en slaat deze op. Vervolgens wordt het venster gesloten.
 

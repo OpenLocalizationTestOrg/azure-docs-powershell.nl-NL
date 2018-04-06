@@ -9,12 +9,12 @@ ms.product: azure
 ms.service: azure-powershell
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 08/31/2017
-ms.openlocfilehash: 0e560332c87fdcc8b7365f2271de24481003a4d6
-ms.sourcegitcommit: 72f56597f0329d35779a3ea4ccea6293f0fd2502
+ms.date: 03/27/2018
+ms.openlocfilehash: 13dd8973cd28c1763aee19fbea067758053deb7d
+ms.sourcegitcommit: 8376e0bc5f862d382d7283ba72990e3707591e7b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="install-and-configure-azure-powershell"></a>Azure PowerShell installeren en configureren
 
@@ -28,7 +28,7 @@ Installatie van Azure PowerShell via PowerShell Gallery heeft de voorkeur.
 Als u items uit de PowerShell Gallery wilt installeren, hebt u de PowerShellGet-module nodig. Zorg ervoor dat u de juiste versie van PowerShellGet hebt en ook voldoet aan de overige systeemvereisten. Voer de volgende opdracht uit om na te gaan of PowerShellGet op uw systeem is geïnstalleerd.
 
 ```powershell
-Get-Module PowerShellGet -list | Select-Object Name,Version,Path
+Get-Module -Name PowerShellGet -ListAvailable | Select-Object -Property Name,Version,Path
 ```
 
 De uitvoer moet er ongeveer uitzien als hieronder is weergegeven:
@@ -36,7 +36,16 @@ De uitvoer moet er ongeveer uitzien als hieronder is weergegeven:
 ```Output
 Name          Version Path
 ----          ------- ----
+Name          Version Path
+----          ------- ----
+PowerShellGet 1.6.0   C:\Program Files\WindowsPowerShell\Modules\PowerShellGet\1.6.0\PowerShellGet.psd1
 PowerShellGet 1.0.0.1 C:\Program Files\WindowsPowerShell\Modules\PowerShellGet\1.0.0.1\PowerShellGet.psd1
+```
+
+U hebt PowerShellGet versie 1.1.2.0 of hoger nodig. Gebruik de volgende opdracht om PowerShellGet bij te werken:
+
+```powershell
+Install-Module PowerShellGet -Force
 ```
 
 Zie de sectie [PowerShellGet ophalen](#how-to-get-powershellget) van dit artikel als PowerShellGet niet is geïnstalleerd.
@@ -50,7 +59,7 @@ Als u Azure PowerShell via de PowerShell Gallery wilt installeren, hebt u verhoo
 
 ```powershell
 # Install the Azure Resource Manager modules from the PowerShell Gallery
-Install-Module AzureRM -AllowClobber
+Install-Module -Name AzureRM -AllowClobber
 ```
 
 PowerShell Gallery is standaard niet geconfigureerd als een vertrouwde opslagplaats voor PowerShellGet. De eerste keer dat u PSGallery gebruikt, ziet u het volgende bericht:
@@ -78,7 +87,7 @@ Als er een eerdere versie van Azure PowerShell is geïnstalleerd, kunt u een fou
 Nadat de module is geïnstalleerd, moet u de module in uw PowerShell-sessie laden. Doe dit tijdens een normale (niet-verhoogde) PowerShell-sessie. Modules worden geladen door de cmdlet `Import-Module` als volgt te gebruiken:
 
 ```powershell
-Import-Module AzureRM
+Import-Module -Name AzureRM
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
@@ -107,7 +116,7 @@ Als er fouten optreden bij het gebruik van het hulpprogramma, kunt u dit melden 
 Hoewel we u aanraden om zo snel mogelijk een upgrade naar de meest recente versie uit te voeren, worden er meerdere versies van Azure PowerShell ondersteund. Voer `Get-Module AzureRM` vanaf de opdrachtregel uit om te bepalen welke versie van Azure PowerShell er op uw systeem is geïnstalleerd.
 
 ```powershell
-Get-Module AzureRM -list | Select-Object Name,Version,Path
+Get-Module AzureRM -ListAvailable | Select-Object -Property Name,Version,Path
 ```
 
 ### <a name="support-for-classic-deployment-methods"></a>Ondersteuning voor klassieke implementatiemethoden
@@ -134,7 +143,7 @@ Zoals in de foutmelding wordt aangegeven, moet u de parameter -AllowClobber gebr
 
 ```powershell
 # Install the Azure Resource Manager modules from the PowerShell Gallery
-Install-Module AzureRM -AllowClobber
+Install-Module -Name AzureRM -AllowClobber
 ```
 
 Zie het Help-onderwerp voor [Install-Module](https://msdn.microsoft.com/powershell/reference/5.1/PowerShellGet/install-module) voor meer informatie.
@@ -151,7 +160,7 @@ Install-Module -Name AzureRM -RequiredVersion 1.2.9
 Slechts één versie van de module kan in een PowerShell-sessie worden geladen. U moet een nieuw PowerShell-venster openen en `Import-Module` gebruiken om een specifieke versie van de AzureRM-cmdlets te importeren:
 
 ```powershell
-Import-Module AzureRM -RequiredVersion 1.2.9
+Import-Module -Name AzureRM -RequiredVersion 1.2.9
 ```
 
 > [!NOTE]
