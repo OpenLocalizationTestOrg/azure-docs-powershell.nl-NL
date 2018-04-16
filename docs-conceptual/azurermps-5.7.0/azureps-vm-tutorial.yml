@@ -1,0 +1,372 @@
+### YamlMime:Tutorial
+title: Virtuele machines maken met Azure PowerShell
+metadata:
+  title: Virtuele machines maken met Azure PowerShell
+  description: Ga aan de slag met Azure PowerShell en maak een virtuele machine.
+  audience: Developer
+  level: Beginner
+  displayType: two-column
+  interactive: azurepowershell
+  ms.date: 02/08/2018
+  ms.author: sewhee
+  author: sdwheeler
+  manager: carmonm
+  ms.devlang: azure-powershell
+  ms.technology: azure
+  ms.openlocfilehash: 41e63eac376d5490a28ba099d0a853b599c6e35f
+  ms.sourcegitcommit: 8376e0bc5f862d382d7283ba72990e3707591e7b
+  ms.translationtype: HT
+  ms.contentlocale: nl-NL
+  ms.lasthandoff: 03/30/2018
+items:
+- durationInMinutes: 1
+  content: >-
+    In deze zelfstudie leert u alle stappen die nodig zijn om een virtuele machine in te stellen met Azure PowerShell. Onder de zelfstudie vallen ook uitvoerquery's, het hergebruiken van Azure-resources en het opschonen van resources.
+
+
+    Deze zelfstudie kan worden voltooid met de interactieve ervaring die wordt aangeboden via Azure Cloud Shell, maar u kunt ook [Azure PowerShell lokaal installeren](install-azurerm-ps.md).
+
+
+    Gebruik __Ctrl + Shift + V__ (__Cmd + Shift + V__ in macOS) om tekst uit de zelfstudie in Azure Cloud Shell te plakken.
+- durationInMinutes: 1
+  title: Aanmelden
+  content: >-
+    Als u een lokale installatie van Azure PowerShell gebruikt, moet u zich aanmelden voordat u een van de volgende stappen uitvoert.
+
+
+    ```powershell
+
+    Connect-AzureRmAccount
+
+    ```
+
+
+    Voltooi het aanmeldingsproces door de weergegeven stappen in uw terminal te volgen.
+- durationInMinutes: 1
+  title: Een resourcegroep maken
+  content: >-
+    In Azure worden alle resources toegewezen in een resourcebeheergroep. Resourcegroepen bieden logische groeperingen van resources, waardoor het gemakkelijker is om met resources als verzameling te werken.
+
+    Voor deze zelfstudie worden alle gemaakte resources opgenomen in één groep met de naam `TutorialResources`.
+
+
+    ```powershell
+
+    New-AzureRmResourceGroup -Name TutorialResources -Location eastus
+
+    ```
+
+
+    ```Output
+
+    ResourceGroupName : TutorialResources
+
+    Location          : eastus
+
+    ProvisioningState : Succeeded
+
+    Tags              :
+
+    ResourceId        : /subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/resourceGroups/TutorialResources
+
+    ```
+- durationInMinutes: 1
+  title: Beheerdersreferenties maken voor de VM
+  content: >-
+    Voordat u een nieuwe virtuele machine kunt maken, moet u een referentieobject maken dat de gebruikersnaam en het wachtwoord bevat voor het beheerdersaccount van de virtuele Windows-machine.
+
+
+    ```powershell
+
+    $cred = Get-Credential -Message "Enter a username and password for the virtual machine."
+
+    ```
+
+
+    Geef de gebruikersnaam en het wachtwoord op wanneer u daarom wordt gevraagd. Het resulterende referentieobject wordt in de volgende stap als parameter doorgegeven.
+
+
+    ```Output
+
+    Windows PowerShell credential request.
+
+    Enter a username and password for the virtual machine.
+
+    User: tutorAdmin
+
+    Password for user tutorAdmin: *********
+
+    ```
+- durationInMinutes: 4
+  title: Een virtuele machine maken
+  content: >-
+    Virtuele machines in Azure hebben een groot aantal afhankelijkheden. Azure PowerShell maakt deze resources voor u op basis van opdrachtregelargumenten die u opgeeft. Voor de leesbaarheid gebruiken we [PowerShell-splatting](/powershell/module/microsoft.powershell.core/about/about_splatting) om parameters door te geven aan de Azure PowerShell-cmdlets.
+
+
+    Maak een nieuwe virtuele Windows-machine.
+
+
+    ```powershell
+
+    $vmParams = @{
+      ResourceGroupName = 'TutorialResources'
+      Name = 'TutorialVM1'
+      Location = 'eastus'
+      ImageName = 'Win2016Datacenter'
+      PublicIpAddressName = 'tutorialPublicIp'
+      Credential = $cred
+      OpenPorts = 3389
+    }
+
+    $newVM1 = New-AzureRmVM @vmParams
+
+    ```
+
+    Terwijl de VM wordt gemaakt, ziet u de parameterwaarden die worden gebruikt en de Azure-resources die worden gemaakt.
+
+    PowerShell toont een voortgangsbalk zoals die hieronder.
+
+
+    ```Output
+     Creating Azure resources
+      39% \
+      [ooooooooooooooooooooooooooooooooooo                                                                 ]
+
+      Creating TutorialVM1 virtual machine.
+    ```
+
+
+    Wanneer de VM gereed is, kunt u de resultaten in Azure Portal bekijken of door de variabele \$newVM1 te controleren.
+
+
+    ```powershell
+
+    $newVM1
+
+    ```
+
+
+    ```Output
+
+    ResourceGroupName : TutorialResources
+
+    Id                : /subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/resourceGroups/TutorialResources/providers/Microsoft.Compute/virtualMachines/TutorialVM1
+
+    VmId              : 12345678-9abc-def0-1234-56789abcedf0
+
+    Name              : TutorialVM1
+
+    Type              : Microsoft.Compute/virtualMachines
+
+    Location          : eastus
+
+    Tags              : {}
+
+    HardwareProfile   : {VmSize}
+
+    NetworkProfile    : {NetworkInterfaces}
+
+    OSProfile         : {ComputerName, AdminUsername, WindowsConfiguration, Secrets}
+
+    ProvisioningState : Succeeded
+
+    StorageProfile    : {ImageReference, OsDisk, DataDisks}
+
+    ```
+
+
+    Eigenschapswaarden die binnen de accolades worden vermeld, zijn geneste objecten. In de volgende stap leert u hoe u in deze geneste objecten specifieke waarden kunt bekijken.
+- durationInMinutes: 5
+  title: VM-informatie ophalen met query's
+  content: >-
+    Laten we nu wat gedetailleerde informatie ophalen van de VM die u zojuist hebt gemaakt. In dit voorbeeld verifieert u de naam van de VM en het beheerdersaccount dat u hebt gemaakt.
+
+
+    ```powershell
+
+    $newVM1.OSProfile | Select-Object ComputerName,AdminUserName
+
+    ```
+
+
+    ```Output
+
+    ComputerName AdminUsername
+
+    ------------ -------------
+
+    TutorialVM1  tutorialAdmin
+
+    ```
+
+
+    We kunnen ook andere Azure PowerShell-opdrachten gebruiken om specifieke informatie over de netwerkconfiguratie op te halen.
+
+
+    ```powershell
+
+    $newVM1 | Get-AzureRmNetworkInterface |
+      Select-Object -ExpandProperty IpConfigurations |
+        Select-Object Name,PrivateIpAddress
+    ```
+
+
+    In dit voorbeeld gebruiken we de PowerShell-pijplijn om het object \$newVM1 naar de cmdlet `Get-AzureRmNetworkInterface` te sturen. In het resulterende netwerkinterfaceobject selecteert u het geneste object IpConfigurations. In het object IpConfigurations selecteert u de eigenschappen Name en PrivateIpAddress.
+
+
+    ```Output
+
+    Name        PrivateIpAddress
+
+    ----        ----------------
+
+    TutorialVM1 192.168.1.4
+
+    ```
+
+
+    Maak verbinding met de VM via Extern bureaublad om te controleren of VM nog steeds wordt uitgevoerd. Hiervoor moet u weten wat het openbare IP-adres is.
+
+
+    ```powershell
+
+    $publicIp = Get-AzureRmPublicIpAddress -Name tutorialPublicIp -ResourceGroupName TutorialResources
+
+
+    $publicIp | Select-Object Name,IpAddress,@{label='FQDN';expression={$_.DnsSettings.Fqdn}}
+
+    ```
+
+
+    In dit voorbeeld gebruikt u `Get-AzureRmPublicIpAddress` en bewaart u de resultaten in de variabele \$publicIp. In deze variabele selecteert u eigenschappen en gebruikt u een expressie om de geneste eigenschap Fqdn op te halen.
+
+
+    ```Output
+
+    Name             IpAddress           FQDN
+
+    ----             ---------           ----
+
+    tutorialPublicIp <PUBLIC_IP_ADDRESS> tutorialvm1-8a0999.eastus.cloudapp.azure.com
+
+    ```
+
+
+    Vanaf uw lokale machine voert u de volgende opdracht uit om verbinding te maken met de VM via Extern bureaublad.
+
+
+    ```powershell
+
+    mstsc.exe /v <PUBLIC_IP_ADDRESS>
+
+    ```
+
+
+    Raadpleeg [Query's uitvoeren op Azure-resources](./queries-azureps.md) voor meer informatie over het uitvoeren van query's op objecteigenschappen.
+- durationInMinutes: 4
+  title: Een nieuwe VM in het bestaande subnet maken
+  content: >-
+    De tweede VM maakt gebruik van het bestaande subnet.
+
+
+    ```powershell
+
+    $vm2Params = @{
+      ResourceGroupName = 'TutorialResources'
+      Name = 'TutorialVM2'
+      ImageName = 'Win2016Datacenter'
+      VirtualNetworkName = 'TutorialVM1'
+      SubnetName = 'TutorialVM1'
+      PublicIpAddressName = 'tutorialPublicIp2'
+      Credential = $cred
+      OpenPorts = 3389
+    }
+
+    $newVM2 = New-AzureRmVM @vm2Params
+
+
+    $newVM2
+
+    ```
+
+
+    ```Output
+
+    ResourceGroupName        : TutorialResources
+
+    Id                       : /subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/resourceGroups/TutorialResources/providers/Microsoft.Compute/virtualMachines/TutorialVM2
+
+    VmId                     : 12345678-9abc-def0-1234-56789abcedf1
+
+    Name                     : TutorialVM2
+
+    Type                     : Microsoft.Compute/virtualMachines
+
+    Location                 : eastus
+
+    Tags                     : {}
+
+    HardwareProfile          : {VmSize}
+
+    NetworkProfile           : {NetworkInterfaces}
+
+    OSProfile                : {ComputerName, AdminUsername, WindowsConfiguration, Secrets}
+
+    ProvisioningState        : Succeeded
+
+    StorageProfile           : {ImageReference, OsDisk, DataDisks}
+
+    FullyQualifiedDomainName : tutorialvm2-dfa5af.eastus.cloudapp.azure.com
+
+    ```
+
+
+    U kunt een paar stappen overslaan om het openbare IP-adres van de nieuwe VM op te halen, aangezien dat adres wordt geretourneerd in de eigenschap FullyQualifiedDomainName van het object \$newVM2. Gebruik de volgende opdracht om verbinding te maken via Extern bureaublad.
+
+
+    ```powershell
+
+    mstsc.exe /v $newVM2.FullyQualifiedDomainName
+
+    ```
+- durationInMinutes: 4
+  title: Opschonen
+  content: >-
+    Nu de zelfstudie is voltooid, is het tijd om de gemaakte resources op te schonen. U kunt afzonderlijke resources verwijderen met de opdracht `Remove-AzureRmResource`, maar de veiligste manier om alle resources in een resourcegroep te verwijderen, is de groep te verwijderen met de opdracht `Remove-AzureRmResourceGroup`.
+
+
+    ```powershell
+
+    $job = Remove-AzureRmResourceGroup -Name TutorialResources -Force -AsJob
+
+
+    $job
+
+    ```
+
+
+    ```Output
+
+    Id     Name            PSJobTypeName   State         HasMoreData     Location             Command
+
+    --     ----            -------------   -----         -----------     --------             -------
+
+    1      Long Running... AzureLongRun... Running       True            localhost            Remove-AzureRmResource...
+
+    ```
+
+
+    Met deze opdracht verwijdert u alle resources die tijdens de zelfstudie zijn gemaakt. De toewijzing van de resources wordt bovendien gegarandeerd in de juiste volgorde ongedaan gemaakt. De parameter `-AsJob` zorgt ervoor dat PowerShell niet blokkeert terwijl de verwijdering plaatsvindt. Als u wilt wachten tot de verwijdering is voltooid, gebruikt u de volgende opdracht:
+
+
+    ```powershell
+
+    Wait-Job -Id $job.Id
+
+    ```
+
+
+    Wanneer het opschonen is voltooid, is deze zelfstudie ook afgerond. Ga verder voor een samenvatting van alles wat u hebt geleerd en voor links naar resources die nuttig zijn voor de volgende stappen.
+- durationInMinutes: 1
+  title: Samenvatting
+  content: "\nGefeliciteerd. U hebt geleerd hoe u VM's met nieuwe of bestaande resources maakt, expressies en andere Azure PowerShell-opdrachten gebruikt om gegevens vast te leggen voor opslag in shell-variabelen en een aantal van de resources bekeken die voor Azure-VM's worden gemaakt.\n\nWat u nu gaat doen, is afhankelijk van waarvoor u Azure PowerShell wilt gebruiken. Er is een aantal materialen waarmee u zich verder kunt verdiepen in de functies die in deze handleiding zijn beschreven.\n\n### <a name=\"in-depth-azure-powershell-documentation\"></a>Gedetailleerde Azure PowerShell-documentatie\n\nHet is een goed idee om alle beschikbare [Azure PowerShell-documentatie](overview.md) te verkennen.\n\nRaadpleeg de volgende artikelen voor meer informatie over de opdrachten die in deze zelfstudie zijn gebruikt.\n\n- [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup)\n- [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential)\n- [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm)\n- [Select-Object](/powershell/module/microsoft.powershell.utility/select-object)\n- [Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-AzureRmPublicIpAddress)\n- [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/Remove-AzureRmResourceGroup)\n- [Wait-Job](/powershell/module/microsoft.powershell.core/wait-job)\n\nEr is ook een aantal artikelen waarin dieper wordt ingegaan op de functies die in deze zelfstudie zijn besproken.\n\n- [PowerShell-splatting](/powershell/module/microsoft.powershell.core/about/about_splatting)\n- [Query's](queries-azureps.md)\n- [Opmaak](formatting-output.md)\n- [PowerShell-taken gebruiken](using-psjobs.md)\n\n### <a name=\"sample-scripts\"></a>Voorbeeldscripts\n\nAls u meteen wilt beginnen met specifieke taken, kunt u enkele voorbeeldscripts bekijken.\n\n- [Virtuele Linux-machines](/azure/virtual-machines/linux/powershell-samples?toc=%2fpowershell%2fmodule%2ftoc.json)\n- [Virtuele Windows-machines](/azure/virtual-machines/windows/powershell-samples?toc=%2fpowershell%2fmodule%2ftoc.json)\n- [Web Apps](/azure/app-service-web/app-service-powershell-samples?toc=%2fpowershell%2fmodule%2ftoc.json)\n- [SQL Databases](/azure/sql-database/sql-database-powershell-samples?toc=%2fpowershell%2fmodule%2ftoc.json)\n- [Cosmos DB](/azure/cosmos-db/powershell-samples?toc=%2fpowershell%2fmodules%2ftoc.json)\n\n### <a name=\"feedback\"></a>Feedback\n\nAls u feedback wilt geven, suggesties hebt of een vraag wilt stellen, kunt u op diverse manieren contact met ons opnemen.\n\n* `Send-Feedback` is een ingebouwde opdracht voor Azure PowerShell waarmee u in vrije tekst feedback aan ons team kunt geven.\n* Een functie-aanvraag of een foutenrapport kunt u indienen in de [Azure PowerShell-opslagplaats](https://github.com/Azure/azure-powershell/issues).\n* Als u een vraag hebt of een probleem ter opheldering wilt indienen, gaat u naar de [documentatieopslagplaats van Azure PowerShell](https://github.com/Azure/azure-docs-powershell/issues).\n\nWe hopen dat u met plezier gebruikmaakt van Azure PowerShell."
