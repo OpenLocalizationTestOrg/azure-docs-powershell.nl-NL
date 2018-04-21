@@ -11,10 +11,10 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 12/11/2017
 ms.openlocfilehash: dfc1efa752c9c9fa42ad5904adacd83c2dc333b8
-ms.sourcegitcommit: 8376e0bc5f862d382d7283ba72990e3707591e7b
+ms.sourcegitcommit: 5f0013981fcea1d689649b9a2b2ffe84ae842e56
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="running-cmdlets-in-parallel-using-powershell-jobs"></a>Cmdlets gelijktijdig uitvoeren met behulp van PowerShell-taken
 

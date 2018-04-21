@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.manager: carmonm
 ms.date: 08/31/2017
 ms.openlocfilehash: cd6b57ff6234895ec4f7a4200f9df0852b2280c2
-ms.sourcegitcommit: 15bf69bf95eceb936b3a429e741add95c308826a
+ms.sourcegitcommit: 5f0013981fcea1d689649b9a2b2ffe84ae842e56
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="overview-of-azure-powershell"></a>Overzicht van Azure PowerShell
 
