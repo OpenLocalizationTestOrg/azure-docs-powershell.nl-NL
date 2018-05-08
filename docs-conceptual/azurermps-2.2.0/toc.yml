@@ -1,0 +1,44 @@
+- name: Azure PowerShell
+  href: overview.md
+  items:
+    - name: Installeren
+      href: install-azurerm-ps.md
+      items:
+        - name: Andere installatiemethoden
+          href: other-install.md
+    - name: Aan de slag
+      href: get-started-azureps.md
+    - name: Aanmelden
+      href: authenticate-azureps.md
+      items:
+        - name: Een service-principal maken
+          href: create-azure-service-principal-azureps.md
+    - name: Query's
+      href: queries-azureps.md
+    - name: Opmaak
+      href: formatting-output.md
+    - name: Abonnementen
+      href: manage-subscriptions-azureps.md
+    - name: Implementeren
+      items:
+        - name: Implementeren met Resource Manager-sjablonen
+          href: 'https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-template-deploy'
+        - name: Resource Manager-sjablonen exporteren
+          href: 'https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-export-template-powershell'
+        - name: Persoonlijke Resource Manager-sjablonen met SAS-token implementeren
+          href: 'https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-powershell-sas-token'
+    - name: Releaseopmerkingen
+      href: release-notes-azureps.md
+      items:
+        - name: Belangrijke wijzigingen voor Azure PowerShell 2.x
+          href: migration-guide.2.0.0.md
+- name: Voorbeeldscripts
+  items:
+    - name: Virtuele Linux-machines
+      href: 'https://docs.microsoft.com/en-us/azure/virtual-machines/linux/powershell-samples?toc=%2fpowershell%2fmodule%2ftoc.json'
+    - name: Virtuele Windows-machines
+      href: 'https://docs.microsoft.com/en-us/azure/virtual-machines/windows/powershell-samples?toc=%2fpowershell%2fmodule%2ftoc.json'
+    - name: Web Apps
+      href: 'https://docs.microsoft.com/azure/app-service-web/app-service-powershell-samples?toc=%2fpowershell%2fmodule%2ftoc.json'
+    - name: SQL Databases
+      href: 'https://docs.microsoft.com/azure/sql-database/sql-database-powershell-samples?toc=%2fpowershell%2fmodule%2ftoc.json'
